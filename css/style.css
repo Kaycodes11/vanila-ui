@@ -1,12 +1,24 @@
+/* html {
+  font-size: 30px;
+} */
+/* font-size = rem and padding-margin = em, width-height = % */
 body {
   margin: 0;
-  font-size: 16px;
+  font-size: 1rem;
   font-family: "Lato", sans-serif;
   color: #2e354f;
 }
 
-img {
-  width: 100%;
+.section-one {
+  font-size: 2rem;
+}
+
+ul {
+  font-size: 1.5rem;
+}
+
+li {
+  font-size: 1.5rem;
 }
 
 h1,
@@ -18,12 +30,12 @@ strong {
 /* Typography */
 
 h1 {
-  font-size: 36px;
+  font-size: 3rem;
   margin: 0;
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 2rem;
   color: #ef5839;
 }
 
