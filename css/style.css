@@ -5,6 +5,10 @@ body {
   color: #2e354f;
 }
 
+img {
+  width: 100%;
+}
+
 h1,
 h2,
 strong {
@@ -66,14 +70,18 @@ header {
   background: #2e354f;
   padding: 45px 0;
   color: white;
-  width: 620px;
-  margin: 0 auto;
 }
 
 section {
-  width: 620px;
-  margin: 0 auto;
   padding: 45px 0;
+}
+
+.container {
+  max-width: 620px;
+  width: 90%;
+
+  /* border: 2px solid magenta; */
+  margin: 0 auto;
 }
 
 .section-two {
