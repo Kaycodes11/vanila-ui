@@ -1,61 +1,82 @@
 body {
   margin: 0;
-  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-family: "Lato", sans-serif;
+  color: #2e354f;
 }
 
 h1,
 h2,
-p {
-  margin-top: 0;
+strong {
+  font-weight: 900;
 }
+
+/* Typography */
 
 h1 {
-  font-size: 24px;
+  font-size: 36px;
+  margin: 0;
 }
 
-p {
-  font-size: 18px;
+h2 {
+  font-size: 24px;
+  color: #ef5839;
 }
 
 a {
-  color: #ffe600;
-  font-weight: 800;
+  color: #ef5839;
 }
 
-header,
-section {
-  padding: 50px;
+a:hover,
+a:focus {
+  color: #d4b44c;
 }
 
-header {
-  background-color: #ffe600;
-  color: black;
-}
-
-.section-one {
-  background-color: black;
-  color: white;
-}
-
-.section-two-link {
-  color: black;
-}
-
-/* button styles */
+/* Button */
 
 .btn {
-  /* button is an inline-element so to apply margin & padding used inline-block */
   display: inline-block;
-  padding: 12px 25px;
-  font-weight: bold;
+  padding: 10px 25px;
   text-decoration: none;
 }
 
 .btn-accent {
-  background: #ffe600;
-  color: black;
-}
-.btn-dark {
-  background: black;
+  background: #ef5839;
   color: white;
+}
+
+.btn-accent:hover {
+  color: #2e354f;
+  background: #d4b44c;
+}
+
+.btn-white {
+  background: white;
+  color: #2e354f;
+}
+
+.btn-white:hover {
+  color: #2e354f;
+  background: #999999;
+}
+
+/* Layout */
+
+header {
+  background: #2e354f;
+  padding: 45px 0;
+  color: white;
+  width: 620px;
+  margin: 0 auto;
+}
+
+section {
+  width: 620px;
+  margin: 0 auto;
+  padding: 45px 0;
+}
+
+.section-two {
+  background: #2e354f;
+  color: #ffffff;
 }
