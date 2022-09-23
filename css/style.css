@@ -1,12 +1,10 @@
-.card {
-  background: #000000;
-  color: #ffffff;
-  width: 560px;
-  margin: 0 auto;
-  padding: 45px;
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
 }
 
 h1,
+h2,
 p {
   margin-top: 0;
 }
@@ -21,54 +19,43 @@ p {
 
 a {
   color: #ffe600;
+  font-weight: 800;
 }
 
-.button {
+header,
+section {
+  padding: 50px;
+}
+
+header {
+  background-color: #ffe600;
+  color: black;
+}
+
+.section-one {
+  background-color: black;
+  color: white;
+}
+
+.section-two-link {
+  color: black;
+}
+
+/* button styles */
+
+.btn {
+  /* button is an inline-element so to apply margin & padding used inline-block */
   display: inline-block;
+  padding: 12px 25px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.btn-accent {
   background: #ffe600;
   color: black;
-  text-align: center;
-  text-decoration: none;
-  /* to increase the size (height top-down, width left-right) of the element */
-  /* padding: 15px 0; /* here given height is 15px and width 0 * / */
-  padding: 15px 30px; /* here height 15px & width 45px from 175px of local width * /
-
-  /* padding could be used to increase height + width or just use width & height */
-  /* or, use width then provide the height by pading 15px (top down) 0 (left right) */
-  /* width: 175px; */
-  /* height: 50px; */
-
-  /* to make space between or from its next/previous element */
-  /* margin-right: 25px; */
-  margin-bottom: 50px;
 }
-
-.button:hover {
-  background: orange;
-}
-
-.accent-color {
-  color: yellow;
-}
-
-.links {
-  margin-top: 20px;
-  margin-bottom: 0;
-}
-
-/* specificity loweest to highest : element selector -> class selector -> id selector */
-
-#test {
-  color: fuchsia;
-}
-
-p {
-  color: pink;
-}
-
-/* The id gegts highest specificity but it could be ovewritten with important */
-
-.test {
-  color: lightgreen;
-  /* color: lightgreen !important; */
+.btn-dark {
+  background: black;
+  color: white;
 }
