@@ -1,102 +1,88 @@
-/* html {
-  font-size: 30px;
-} */
-/* font-size = rem and padding-margin = em, width-height = % */
 body {
+  font-size: 1.125rem;
+  color: #707070;
   margin: 0;
-  font-size: 1rem;
-  font-family: "Lato", sans-serif;
-  color: #2e354f;
+  background: pink;
 }
 
-.section-one {
-  font-size: 2rem;
+/* min-width 650px or bigger */
+@media (min-width: 500px) {
+  body {
+    background: orange;
+  }
 }
 
-ul {
-  font-size: 1.5rem;
-}
-
-li {
-  font-size: 1.5rem;
-}
-
-h1,
-h2,
-strong {
-  font-weight: 900;
+/* min-width 400px to 649px */
+@media (min-width: 400px) and (max-width: 649px) {
+  body {
+    background: purple;
+  }
 }
 
 /* Typography */
 
 h1 {
   font-size: 3rem;
-  margin: 0;
+  color: #212614;
+  text-align: center;
+}
+
+h1 span {
+  color: #b7832f;
 }
 
 h2 {
-  font-size: 2rem;
-  color: #ef5839;
+  font-size: 1.5rem;
 }
 
-a {
-  color: #ef5839;
-}
-
-a:hover,
-a:focus {
-  color: #d4b44c;
-}
-
-/* Button */
-
-.btn {
-  display: inline-block;
-  padding: 10px 25px;
-  text-decoration: none;
-}
-
-.btn-accent {
-  background: #ef5839;
-  color: white;
-}
-
-.btn-accent:hover {
-  color: #2e354f;
-  background: #d4b44c;
-}
-
-.btn-white {
-  background: white;
-  color: #2e354f;
-}
-
-.btn-white:hover {
-  color: #2e354f;
-  background: #999999;
+p {
+  margin-top: 0;
 }
 
 /* Layout */
 
-header {
-  background: #2e354f;
-  padding: 45px 0;
-  color: white;
+img {
+  max-width: 100%;
 }
 
-section {
-  padding: 45px 0;
-}
-
-.container {
-  max-width: 620px;
-  width: 90%;
-
-  /* border: 2px solid magenta; */
+.conatiner {
+  width: 95%;
+  max-width: 960px;
   margin: 0 auto;
 }
 
-.section-two {
-  background: #2e354f;
-  color: #ffffff;
+.columns {
+  display: flex;
+  justify-content: space-between;
+  margin: 1em 0;
+}
+
+.col-1 {
+  width: 20%;
+}
+
+.col-2 {
+  width: 45%;
+}
+
+.col-3 {
+  width: 70%;
+}
+
+.col-bg {
+  background: #212614;
+  color: white;
+  padding: 1em;
+}
+
+@media (max-width: 600px) {
+  .columns {
+    flex-direction: column;
+  }
+
+  .col-1,
+  .col-2,
+  .col-3 {
+    width: 100%;
+  }
 }
