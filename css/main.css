@@ -38,34 +38,39 @@ body {
 /* from here */
 .grid {
   display: grid;
-  grid: 300px 300px / 1fr 1fr;
-  grid-gap: 10px;
+  grid: 100px auto 150px / repeat(8, 1fr);
+  /* use "." to empty out out area if needed */
+
+  /* grid-template-areas:
+    "h h h h h h s s"
+    "c c c c c c s s"
+    "f f f f f f s s"; */
+
+  /* grid-template-areas:
+    ". h h h h h h ."
+    "c c c c c c s s"
+    ". f f f f f f ."; */
+
+  grid-template-areas:
+    "h h h h h h h h"
+    "c c c c c . s s"
+    "f f f f f f f f";
+
+  min-height: 100vh;
 }
 
-.item {
-  position: relative;
+.header {
+  grid-area: h;
 }
 
-.abs {
-  position: absolute;
+.content {
+  grid-area: c;
 }
 
-.tl {
-  top: 0;
-  left: 0;
+.sidebar {
+  grid-area: s;
 }
 
-.tr {
-  top: 0;
-  right: 0;
-}
-
-.bl {
-  bottom: 0;
-  left: 0;
-}
-
-.br {
-  bottom: 0;
-  right: 0;
+.footer {
+  grid-area: f;
 }
