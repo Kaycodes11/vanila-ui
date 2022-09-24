@@ -4,8 +4,19 @@
 
 .grid {
   display: grid;
-  /* grid-template: 100px 100px 100px / repeat([col] 24, 25 px); */
-  grid-template: 100px 100px 100px / repeat([small] 24 [large] 40 px);
+  grid-gap: 10px;
+  /* grid-template: 100px 100px 100px / repeat(6, 1fr); */
+  /* grid-template: minmax(100px, 200px) 100px 100px / repeat(
+      6,
+      minmax(100px, 200px)
+    ); */
+  /* fills avaiable area based on given column size so the no. of columns may changes */
+
+  /* grid-template: 100px 100px 100px / repeat(auto-fill, minmax(auto, 200px)); */
+  /* grid-template: 100px 100px 100px / repeat(auto-fill, minmax(100px, auto)); */
+  grid-template: 100px 100px 100px / repeat(auto-fill, 1fr);
+  /* grid-template: 100px 100px 100px / repeat(auto-fill, minmax(100px, 1fr)); */
+  /* grid-template: 100px 100px 100px / repeat(auto-fill, minmax(100px, 200px)); */
 }
 
 .grid div:nth-child(1) {
