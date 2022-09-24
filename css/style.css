@@ -11,16 +11,13 @@ body {
 }
 
 .container {
-  border: 5px solid grey;
-  width: 500px;
-  height: 500px;
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
-.item1 {
-  width: 100px;
-  height: 100px;
+.push {
+  /* leaves the all space on the left & moves to right like flex-end */
+  margin-left: auto;
+}
+.item {
   padding: 10px;
   border: 5px solid rgb(17, 105, 121);
   background-color: rgba(17, 105, 121, 0.1);
