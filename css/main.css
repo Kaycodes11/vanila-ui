@@ -5,18 +5,8 @@
 .grid {
   display: grid;
   grid-gap: 10px;
-  /* grid-template: 100px 100px 100px / repeat(6, 1fr); */
-  /* grid-template: minmax(100px, 200px) 100px 100px / repeat(
-      6,
-      minmax(100px, 200px)
-    ); */
-  /* fills avaiable area based on given column size so the no. of columns may changes */
-
-  /* grid-template: 100px 100px 100px / repeat(auto-fill, minmax(auto, 200px)); */
-  /* grid-template: 100px 100px 100px / repeat(auto-fill, minmax(100px, auto)); */
-  grid-template: 100px 100px 100px / repeat(auto-fill, 1fr);
-  /* grid-template: 100px 100px 100px / repeat(auto-fill, minmax(100px, 1fr)); */
-  /* grid-template: 100px 100px 100px / repeat(auto-fill, minmax(100px, 200px)); */
+  /* if there's empty avaiable space then it will streach to fit */
+  grid-template: 100px 100px 100px / repeat(auto-fit, minmax(100px, 200px));
 }
 
 .grid div:nth-child(1) {
