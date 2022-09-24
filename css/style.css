@@ -12,12 +12,24 @@ body {
 
 .container {
   display: flex;
+  border: 5px solid grey;
 }
-.push {
-  /* leaves the all space on the left & moves to right like flex-end */
-  margin-left: auto;
+
+.item:first-child {
+  /* noramally or when growing first flex item'll grow twice the size from the rest flex item */
+  flex: 2 1 auto;
 }
+
 .item {
+  /* flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto; */
+
+  /* how much flex item could grow/shrink based on the given flex-basis */
+  /* if it's auto then it'll try to fit empty space */
+  /* 1 1 200px means , normally it could be 200px but its size could grow/shrink from there for each flex item */
+  /* 1 1 0 , take the avaiable empty space among flex children equally since here flex-grow is 1 */
+  flex: 1 1 auto;
   padding: 10px;
   border: 5px solid rgb(17, 105, 121);
   background-color: rgba(17, 105, 121, 0.1);
