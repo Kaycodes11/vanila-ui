@@ -4,35 +4,24 @@
 
 .grid {
   display: grid;
-  grid: auto-flow 150px / auto-flow 1fr;
-  /* grid: 150px 150px / auto-flow 150px; */
+  grid: 200px 200px / repeat(3, 1fr);
   grid-gap: 10px;
-  grid-auto-flow: row dense;
 }
 
-.grid div:nth-child(1) {
-  background: lightblue;
+.item {
+  background: rgba(10, 175, 121, 0.15);
+  padding: 25px;
 }
 
-.grid div:nth-child(2) {
-  background: green;
-  /* here "two columns" defined but if the first column has auto-flow;
-  then "1 / span 10" could be used if needed as the seconded column will be added thereafter */
-  grid-column: 1 / span 3;
+.three {
+  grid-row: 1;
+  grid-column: 1 / span 2;
+  background-color: rgba(0, 0, 80, 0.7);
+  z-index: 1;
 }
 
-.grid div:nth-child(3) {
-  background: steelblue;
-}
-
-.grid div:nth-child(4) {
-  background: magenta;
-}
-
-.grid div:nth-child(5) {
-  background: sienna;
-}
-
-.grid div:nth-child(6) {
-  background: greenyellow;
+.four {
+  grid-row: 1;
+  grid-column: 2 / span 2;
+  background-color: rgba(80, 0, 0, 0.7);
 }
