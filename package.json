@@ -1,0 +1,24 @@
+{
+  "name": "vanila-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "tailwind": "npx tailwindcss -i ./src/input.css -o ./build/css/style.css --watch",
+    "prettier": "npx prettier --write ./build/*.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kaycodes11/vanila-ui.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kaycodes11/vanila-ui/issues"
+  },
+  "homepage": "https://github.com/Kaycodes11/vanila-ui#readme",
+  "devDependencies": {
+    "prettier-plugin-tailwindcss": "^0.1.13"
+  }
+}
