@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn grid tracks alignment</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      h1 {
+        padding: 0 0 0 40px;
+      }
+
+      .container {
+        background: #eeeeee;
+        width: 700px;
+        height: 700px;
+        margin: 45px auto 0;
+
+        display: grid;
+        grid-template-columns: repeat(2, 150px);
+        grid-template-rows: repeat(2, 100px);
+        grid-gap: 15px;
+        grid-auto-rows: 50px;
+        
+        /* whenever there extra grid item using row/column dense that empty space could be filled */
+        /* like here ninth grid item */
+        grid-auto-flow: colum dense;
+
+        /* center grid children at center on horizontal/ x axis based on avaiable width  */
+        justify-content: center;
+        /* center grid children at center on vertical/ y axis based on avaiable width  */
+        align-content: center;
+      }
+
+      .item1 {
+        background: orangered;
+      }
+      .item2 {
+        background: yellowgreen;
+      }
+      .item3 {
+        background: mediumpurple;
+        grid-row: span 3;
+      }
+      .item4 {
+        background: hotpink;
+      }
+      .item5 {
+        background: royalblue;
+      }
+      .item6 {
+        background: orchid;
+        grid-column: span 2;
+      }
+      .item7 {
+        background: goldenrod;
+      }
+
+      .item8 {
+        background: #7dcea0;
+      }
+
+      .items {
+        color: #fff;
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="items item1">One</div>
+      <div class="items item2">Two</div>
+      <div class="items item3">Three</div>
+      <div class="items item4">Four</div>
+      <div class="items item5">Five</div>
+      <div class="items item6">Six</div>
+      <div class="items item7">Seven</div>
+      <div class="items item8">Eight</div>
+      <div class="items item8">Nine</div>
+    </div>
+  </body>
+</html>

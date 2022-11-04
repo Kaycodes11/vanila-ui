@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn grid fit content</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      h1 {
+        padding: 0 0 0 40px;
+      }
+
+      .container {
+        background: lightgrey;
+        width: 650px;
+        margin: 50px auto 0;
+        display: grid;
+        /* auto fit will simily fit the columns based on avaiable space  */
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: fit-content(200px) fit-content(300px) 1fr;
+
+
+        grid-template-rows: repeat(2, minmax(100px, min-content));
+
+        grid-auto-rows: 80px;
+      }
+
+      .item1 {
+        background: orangered;
+      }
+      .item2 {
+        background: yellowgreen;
+      }
+      .item3 {
+        background: mediumpurple;
+      }
+      .item4 {
+        background: hotpink;
+      }
+
+      .item5 {
+        background: royalblue;
+      }
+
+      .item6 {
+        background: goldenrod;
+      }
+
+      .items {
+        color: #fff;
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>css grid fit content</h1>
+    <div class="container">
+      <div class="items item1">One Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis perferendis dolorum in consequuntur deleniti aperiam nostrum placeat corporis eos! Recusandae odio earum sit dolorem delectus error, distinctio ea. Eveniet et unde, ex, libero dolor voluptatem, aliquam alias nulla debitis doloribus nihil quia consectetur rerum ratione obcaecati? Iusto cum illo harum repudiandae quos repellendus iste quae, et voluptatem autem similique totam aliquam modi obcaecati quibusdam! Corrupti quibusdam vel architecto alias omnis expedita iusto ut temporibus magni odit atque repellat mollitia cumque dignissimos sapiente assumenda eius officiis quisquam autem, eveniet quod? Tenetur, modi quibusdam. Mollitia perspiciatis ipsa magnam numquam excepturi molestiae quas.</div>
+      <div class="items item2">Two</div>
+      <div class="items item3">Three</div>
+      <div class="items item4">Four Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero consequatur quae sapiente nobis, cum provident recusandae rerum saepe tempore numquam eius nisi mollitia. Animi distinctio inventore repellendus dolorum veniam accusamus quasi officiis saepe dignissimos, quod explicabo aut alias hic doloremque fuga. Laboriosam, eius debitis!</div>
+      <div class="items item5">Five</div>
+      <div class="items item6">Six</div>
+    </div>
+  </body>
+</html>
