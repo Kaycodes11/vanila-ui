@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transition element on multiple properties</title>
+    <style>
+      .transition {
+        width: 200px;
+        height: 35px;
+        background-color: red;
+        transition: width 0.5s, transform 1.5s, height 2s,
+          background-color 1s ease-in-out 1s;
+      }
+      .container:hover .transition {
+        transform: translateX(500px);
+        width: 400px;
+        height: 100px;
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Transition using multiple properties</h1>
+    <div class="container">
+      <div class="transition">Transition</div>
+    </div>
+  </body>
+</html>

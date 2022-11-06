@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transition timing function: cubic bezier</title>
+    <style>
+      /*
+        * transition-timing-function = cubic bezier(x1, y1, x2, y2);
+        * timing function that describes a progression of movement as a cubic-bezier curve.
+        */
+      .transition {
+        color: white;
+        background-color: red;
+        width: 100px;
+        padding: 10px;
+        margin: 10px;
+        transition-property: margin-left;
+        transition-duration: 2s;
+      }
+      .container:hover .transition {
+        margin-left: 500px;
+      }
+      .cubic {
+        transition-timing-function: cubic-bezier(.99, .5, .44, .54);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>transition-timing-function: cubic bezier()</h1>
+    <div class="container">
+      <div class="transition cubic">cubic</div>
+    </div>
+  </body>
+</html>

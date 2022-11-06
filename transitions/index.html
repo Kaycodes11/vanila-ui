@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transitons</title>
+    <style>
+      /*
+* transition-property: none | all | property name 
+* transition-duration: duration
+* transition-timing-function: timing function
+* transition-delay: delay
+
+* transition: [property name] [duration] [timing function] [delay];
+
+
+
+
+*/
+      .transition-div {
+        margin: 0 auto;
+        width: 100px;
+        height: 40px;
+        background-color: red;
+
+        /* makes the animation smooth using transition */
+        transition: background-color 0.5s;
+      }
+
+      .transition-div:hover {
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>controlling transitons</h1>
+    <!-- <p>
+      CSS transitions allow property changes in CSS values to occur smoothly
+      over a specified duration.
+    </p>
+    <p>This smoothing animates the changing of a CSS value when clicked, focus or active</p> -->
+
+    <div class="transition-div"></div>
+  </body>
+</html>

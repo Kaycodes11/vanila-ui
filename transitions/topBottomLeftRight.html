@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Top and Bottom Left to Right and Right to Left Effects</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@600"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #223e61;
+        font-family: Nunito, sans-serif;
+        color: #fff;
+      }
+
+      h2 {
+        display: flex;
+        width: 100%;
+        height: 200px;
+        margin: 24px auto;
+        justify-content: center;
+        align-items: center;
+      }
+
+      h2.first {
+        background-color: #bba01d;
+      }
+
+      h2.second {
+        background-color: #ff5e33;
+      }
+
+      .link {
+        display: inline-block;
+        position: relative;
+        font-size: 48px;
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .first .link::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 5px;
+        background-color: red;
+        border-radius: 3px;
+        top: 0;
+        left: 0;
+        right: 0;
+        transition: width 0.7s ease;
+      }
+
+      .first .link:hover::before,
+      .first .link:hover::after {
+        width: 100%;
+      }
+
+      .first .link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 5px;
+        background-color: red;
+        border-radius: 3px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transition: width 0.7s ease;
+      }
+
+      .second .link::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 5px;
+        background-color: red;
+        border-radius: 3px;
+        top: 0;
+        right: 0;
+        transition: width 0.7s ease;
+      }
+
+      .second .link:hover::before,
+      .second .link:hover::after {
+        width: 100%;
+      }
+
+      .second .link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 5px;
+        background-color: red;
+        border-radius: 3px;
+        bottom: 0;
+        right: 0;
+        transition: width 0.7s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 class="first">
+      <a href="#" class="link">Top and Bottom Left to Right Effect</a>
+    </h2>
+
+    <h2 class="second">
+      <a href="#" class="link">Top and Bottom Right to Left Effect</a>
+    </h2>
+
+    <script src="script.js"></script>
+  </body>
+</html>

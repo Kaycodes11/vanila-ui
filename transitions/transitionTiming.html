@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transition timing</title>
+    <style>
+      /*
+        *
+        * transition-timing-function : predefined keywords
+        * -> ease
+        * -> ease in 
+        * -> ease in out 
+        * -> linear
+        * -> step-start
+        * -> step-end
+        * -> cubic bezier
+        */
+      .transition {
+        color: white;
+        background-color: red;
+        width: 100px;
+        padding: 10px;
+        margin: 10px;
+        transition-property: margin-left;
+        transition-duration: 2s;
+      }
+      .ease {
+        transition-timing-function: ease;
+      }
+      .ease-in {
+        transition-timing-function: ease-in;
+      }
+      .ease-out {
+        transition-timing-function: ease-out;
+      }
+      .ease-in-out {
+        transition-timing-function: ease-in-out;
+      }
+      .linear {
+        transition-timing-function: linear;
+      }
+      .step-start {
+        transition-timing-function: step-start;
+      }
+      .step-end {
+        transition-timing-function: step-end;
+      }
+
+      /* .container {
+        background-color: grey;
+      } */
+
+      /* when hovered on container; this "transition" class will be applied on container */
+      .container:hover .transition {
+        margin-left: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Transition Timing Function</h1>
+    <div class="container">
+      <div class="transition ease">ease</div>
+      <div class="transition ease-in">ease in</div>
+      <div class="transition ease-out">ease out</div>
+      <div class="transition ease-in-out">ease in out</div>
+      <div class="transition linear">linear</div>
+      <div class="transition step-start">step-start</div>
+      <div class="transition step-end">step-end</div>
+    </div>
+  </body>
+</html>

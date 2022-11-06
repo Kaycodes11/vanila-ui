@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Lab Session: Moving Around Box</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #eae067;
+        font-family: Raleway;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .page-title {
+        margin-top: 30px;
+      }
+
+      .box {
+        width: 60px;
+        height: 60px;
+        background-color: #2096c3;
+        margin-top: 30px;
+        cursor: pointer;
+        animation: moveAround 5s infinite;
+      }
+
+      @keyframes moveAround {
+        0%,
+        100% {
+          margin-left: 0;
+          margin-top: 0;
+        }
+        25% {
+          margin-left: 300px;
+          margin-top: 0;
+        }
+        50% {
+          margin-left: 300px;
+          margin-top: 150px;
+        }
+        75% {
+          margin-left: 0;
+          margin-top: 150px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="page-title">Moving Box</h1>
+
+    <div class="box"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

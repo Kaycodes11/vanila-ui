@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Animation Timing Functions</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway"
+      rel="stylesheet"
+    />
+    <style>
+      /**
+  *
+  * animation-timing-function: predefined keywords
+  * -> ease
+  * -> ease-in
+  * -> ease-out
+  * -> ease-in-out
+  * -> linear
+  * -> step-start
+  * -> step-end
+  *
+  * animation-timing-function: steps(n)
+  * animation-timing-function: steps(n, j)
+  * n -> number of steps
+  * j -> jump keyword -> start || end
+  *
+  * animation-timing-function: cubic-bezier(x1, y1, x2, y2);
+  * timing function that describes a progression of movement as a cubic-bezier curve.
+  *
+  *
+  */
+
+      body {
+        background-color: #eae067;
+        font-family: Raleway;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .page-title {
+        margin-top: 30px;
+      }
+
+      .box {
+        width: 60px;
+        height: 60px;
+        background-color: #2096c3;
+        margin-top: 30px;
+        cursor: pointer;
+        animation-name: rotate;
+        animation-duration: 5s;
+        animation-timing-function: cubic-bezier(1, 1.5, 0.3, 0.9);
+      }
+
+      @keyframes rotate {
+        0% {
+          transform: rotate(0);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="page-title">Animation Timing Functions</h1>
+
+    <div class="box"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

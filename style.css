@@ -1,0 +1,37 @@
+/**
+*
+* transform : translate() i.e. move(), scale(),  rotate(), skew()
+* transform: translate(); -> syntax below
+* - translate(tx, ty);
+* - translate(tx) => translate(tx, 0);
+* - translate(ty) => translate( 0, ty);
+* - tx => the length of the translation to x axis = length of the perentange values
+* - ty => the length of the translation to y axis = length of the perentange values
+
+*/
+
+.wrapper {
+  width: 300px;
+  height: 300px;
+
+  border: 1px dashed red;
+  margin: 0 auto;
+}
+
+.inner {
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+
+  /* Translate Element at X / horizontal  axis */
+  /* transform: translate(50%); */
+  transform: translate(-50px);
+  /* transform: translateX(100px); */
+
+  /* Translate Element at Y / vertical axis */
+  transform: translate(0, 50px);
+  /* transform: translateY(100px); */
+
+  /* both axis */
+  transform: translate(50px, 50px);
+}

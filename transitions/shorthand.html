@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transition: shorthand</title>
+    <style>
+      .together {
+        width: 200px;
+        height: 35px;
+        background-color: red;
+        /* transition-property: transform;
+        transition-duration: 1.25s;
+        transition-timing-function: cubic-bezier(1, 0.34, 0, 1.4);
+        transition-delay: 0.5s; */
+        transform: transform 1.25s cubic-bezier(1, 0.34, 0, 1.4) 0.5s;
+      }
+
+      /* when hovered on  .together-container, below transform will be applied to just .together */
+      .together-container:hover .together {
+        transform: translateX(500px);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Transition shorthand</h1>
+    <div class="together-container">
+      <div class="together">Transition</div>
+    </div>
+  </body>
+</html>
