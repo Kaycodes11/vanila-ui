@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+<<<<<<< HEAD
   darkMode: "class",
   content: ["./dist/**/*.{html,css,js}"],
   theme: {
@@ -24,3 +25,33 @@ module.exports = {
 /* https://www.youtube.com/watch?v=yyxbuZCaoxU&ab_channel=Peter.in */
 
 /* darkMode: "media" is depenedant on local computer whether it's on dark or light mode */
+=======
+  content: ["./build/*.html", "./build/js/*.js"],
+  theme: {
+    extend: {
+      colors: {
+        papayawhip: {
+          light: '#fef4e4',
+          DEFAULT: '#ffefd5',
+          dark: '#fee5bc',
+        }
+      },
+      screens: {
+        'widescreen': { 'raw': '(min-aspect-ratio: 3/2)' },
+        'tallscreen': { 'raw': '(max-aspect-ratio: 13/20)' },
+      },
+      keyframes: {
+        'open-menu': {
+          '0%': { transform: 'scaleY(0)' },
+          '80%': { transform: 'scaleY(1.2)' },
+          '100%': { transform: 'scaleY(1)' },
+        },
+      },
+      animation: {
+        'open-menu': 'open-menu 0.5s ease-in-out forwards',
+      }
+    },
+  },
+  plugins: [],
+}
+>>>>>>> bd993f9dfe1964ccc3ef7ea552fec1e06ef22d24
