@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html x-data="{ dark: false }" :class="dark ? 'dark' : ''" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Project</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+  </head>
+  <body class="bg-mainColor debug-screens">
+    <!-- one page just has a single container ; within it it has child elements -->
+    <div
+      class="container mx-auto min-h-screen px-6 py-8 bg-gray-100 dark:bg-gray-900"
+    >
+      <! - page header / headings ->
+      <section id="header">
+        <button
+          @click="dark = !dark"
+          class="btn btn-icon btn-gray w-max focus:outline-none"
+        >
+          <!-- Sun -->
+          <svg
+            x-show="dark"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="w-5 h-5 text-yellow-200 mr-1"
+          >
+            <path
+              d="M10 2a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 0110 2zM10 15a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 0110 15zM10 7a3 3 0 100 6 3 3 0 000-6zM15.657 5.404a.75.75 0 10-1.06-1.06l-1.061 1.06a.75.75 0 001.06 1.06l1.06-1.06zM6.464 14.596a.75.75 0 10-1.06-1.06l-1.06 1.06a.75.75 0 001.06 1.06l1.06-1.06zM18 10a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0118 10zM5 10a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 015 10zM14.596 15.657a.75.75 0 001.06-1.06l-1.06-1.061a.75.75 0 10-1.06 1.06l1.06 1.06zM5.404 6.464a.75.75 0 001.06-1.06l-1.06-1.06a.75.75 0 10-1.061 1.06l1.06 1.06z"
+            />
+          </svg>
+
+          <!-- Moon -->
+          <svg
+            x-show="!dark"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="w-5 h-5 text-indigo-500 mr-1"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M7.455 2.004a.75.75 0 01.26.77 7 7 0 009.958 7.967.75.75 0 011.067.853A8.5 8.5 0 116.647 1.921a.75.75 0 01.808.083z"
+              clip-rule="evenodd"
+            />
+          </svg>
+
+          <span
+            class="leading-4"
+            x-text="dark ? 'Switch to light mode' : 'Switch to dark mode'"
+          ></span>
+        </button>
+        <div class="text-center">
+          <h1 class="leading-snug">
+            Tom Gonzales home training <br />
+            <span
+              class="text-indigo-900 dark:text-indigo-300 italic text-4xl sm:text-5xl lg:text-7xl opacity-80"
+            >
+              <q>&nbsp;I'll get you in shape!&nbsp;</q>
+            </span>
+          </h1>
+          <h2>
+            Muscle building • Functional training <br class="sm:hidden" />
+            <span class="hidden sm:inline">•</span> Nutritional advice
+          </h2>
+        </div>
+      </section>
+
+      <section
+        class="mt-8 grid sm:grid-cols-2 sm:gap-5 md:gap-10 xl:w-9/12 xl:mx-auto"
+        id="image_services"
+      >
+        <! - picture ->
+        <div class="mx-auto sm:ml-auto mb-7 sm:mb-0" id="image">
+          <img src="img/tom.jpg" alt="Tom Gonzales Online Training" />
+        </div>
+
+        <! - Services ->
+        <div id="services">
+          <h3>I offer you:</h3>
+          <ul class="list-disc ml-6">
+            <li>
+              Lessons via Skype and you can record all sessions and watch them
+              again later.
+            </li>
+            <li>Holistic full body training</li>
+            <li>Training without equipment</li>
+            <li>Pain reduction</li>
+            <li>Tailored nutrition plans</li>
+          </ul>
+
+          <!-- only show when >= md thus it will before "md" -->
+          <section class="hidden md:block" id="quali_right">
+            <h3 class="mt-10">My qualifications:</h3>
+            <ul class="list-disc ml-6">
+              <li>Certified nutritionist</li>
+              <li>Certified fitness trainer</li>
+              <li>5 years of experience in 1: 1 training</li>
+            </ul>
+          </section>
+        </div>
+      </section>
+
+      <!-- only for small screen i.e. <= 640px whereas it will be hidden when it reaches >= md -->
+      <section class="md:hidden" id="quali_bottom">
+        <h3 class="mt-5 md:mt-10">My qualifications:</h3>
+        <ul class="list-disc ml-6">
+          <li class="leading-5 md:leading-normal">Certified nutritionist</li>
+          <li class="leading-5 md:leading-normal">Certified fitness trainer</li>
+          <li class="leading-5 md:leading-normal">
+            5 years of experience in 1: 1 training
+          </li>
+        </ul>
+      </section>
+
+      <! - Prices and payment: 8 (divident)  / 12 (divisor) * 100 = 66.66% ->
+      <section class="mt-8" id="price_payment">
+        <div class="lg:w-8/12 xl:w-7/12 mx-auto">
+          <h2 class="xl:text-3xl">Prices and payment</h2>
+          <p class="text-justify">
+            My most important goal is that you get ahead with your goals.
+          </p>
+          <p>
+            In a free opening session we will discuss what you want to achieve
+            and how much you can or want to spend. Then we are guaranteed to
+            find a solution that suits you.
+          </p>
+        </div>
+      </section>
+
+      <! - Contact ->
+      <section class="mt-8 mb-10" id="contact">
+        <!-- : from the avaiable width all children of this "wrapper div" will take total of 66.66% width -->
+        <div class="flex justify-around lg:w-8/12 lg:mx-auto">
+          <div id="email">
+            <p>Your message:</p>
+            <a
+              href="#"
+              class="flex items-center bg-gray-300 dark:bg-gray-500 dark:text-white dark:hover:bg-gray-600 px-4 py-2 w-max rounded shadow-sm focus:ring-2 focus:ring-yellow-400 hover:bg-gray-400 hover:shadow-none transition"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-at-sign h-4 mr-1"
+              >
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path>
+              </svg>
+              <span class="text-lg 2xl:text-2xl">Send an @Email</span>
+            </a>
+          </div>
+
+          <div id="whatsApp_telefon">
+            <p>WhatsApp:</p>
+            <span class="text-lg 2xl:text-2xl dark:text-gray-100"
+              >1 222 555 44 33</span
+            >
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
