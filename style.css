@@ -8,6 +8,10 @@ body {
   margin: 1em auto;
 }
 
+h1 {
+  color: green;
+}
+
 hr {
   margin-top: 2rem;
 }
@@ -58,4 +62,14 @@ div > h2 {
   flex: 4;
   height: 480px;
   border: none;
+}
+
+.btn {
+  background-color: light-green;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: green;
 }
