@@ -58,5 +58,19 @@
     <!-- https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/ -->
     <input type="file" name="file" id="file" class="inputFile" />
     <label for="file"><strong>Upload File</strong></label>
+    
+    <!--  when the parent element here (<button> has display: flex; then it doesn't matter whether flex child (inline or block) they will follow parent element's instructions i.e. flex     -->
+    <!--  therefore, flex child whether (inline or block) doesn't matter, so use whichever element needed like if sidebar then use aside and such    -->
+    
+    <!--  <button className="relative group flex items-center rounded-md overflow-hidden gap-x-4 bg-neutral-100/10 hover:bg-neutral-100/20 transition pr-4">
+      <div className="relative min-h-[64px] min-w-[64px]">
+        <Image fill className="object-cover" src={image} alt="Image" />
+      </div>
+      <p className="font-medium truncate py-5">{name}</p>
+      <div className="absolute transition opacity-0 rounded-full flex items-center justify-center bg-green-500 p-4 drop-shadow-md right-5 group-hover:opacity-100 hover:scale-110">
+        <FaPlay size={20} className="text-black" />
+      </div>
+    </button>   -->
+    
   </body>
 </html>
