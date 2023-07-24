@@ -89,4 +89,6 @@ const APP = {
   },
 };
 
+new Read
+
 document.addEventListener("DOMContentLoaded", APP.init);
