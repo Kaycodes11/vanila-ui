@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File and FileList</title>
+    <style>
+        * {
+  box-sizing: border-box;
+  font: inherit;
+}
+html {
+  font-size: 20px;
+  font-family: sans-serif;
+  margin: 0;
+}
+body {
+  margin: 0;
+}
+header {
+  padding: 1rem 3rem;
+  background-color: coral;
+  color: white;
+  border-bottom: 1px solid #000;
+}
+:is(main, footer) {
+  padding: 1rem 3rem;
+}
+header h1 {
+  font-size: 2rem;
+}
+form {
+  padding: 0 4rem;
+}
+.hidden {
+  opacity: 0;
+  height: 0;
+  line-height: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+footer img {
+  width: 300px;
+}
+    </style>
+  </head>
+  <body>
+    <body>
+        <header>
+          <h1>File and FileList (and fetch too)</h1>
+        </header>
+        <main>
+          <h2>Gather Your Files</h2>
+          <form name="myform" id="myform" action="#">
+            <p>
+              <label>Pick Files</label>
+              <input
+                type="file"
+                id="inputFile"
+                multiple
+                accept=".png,.jpg,.gif,.webp,image/jpeg,image/gif,image/webp,image/png"
+              />
+            </p>
+            
+            <p><button id="btnToggle">Toggle File Input</button></p>
+            <p><button id="btnPick">Pick Files</button></p>
+            <p><button id="btnInfo">Show File Info</button></p>
+          </form>
+        </main>
+        <footer>
+          <p>&copy; 2022</p>
+        </footer>
+        <script src="file.js"></script>
+  </body>
+</html>

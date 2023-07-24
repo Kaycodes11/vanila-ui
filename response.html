@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Making custom response object</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        font: inherit;
+      }
+      html {
+        font-size: 20px;
+        font-family: sans-serif;
+        margin: 0;
+      }
+      body {
+        margin: 0;
+      }
+      header {
+        padding: 1rem 3rem;
+        background-color: coral;
+        color: white;
+        border-bottom: 1px solid #000;
+      }
+      :is(main, footer) {
+        padding: 1rem 3rem;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Custom Response Objects</h1>
+    </header>
+    <main>
+      <h2>Creating Response Objects</h2>
+      <p>Why would you want to create a Response Object?</p>
+      <ul>
+        <li>Save a generated file in the Cache</li>
+        <li>Put a user's local file into the Cache</li>
+        <li>Return a generated file from a Service Worker</li>
+        <li>Make copies of files</li>
+      </ul>
+    </main>
+    <footer>
+      <p>&copy; 2022</p>
+    </footer>
+    <script src="response.js"></script>
+  </body>
+</html>
