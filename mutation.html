@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mutation Observer</title>
+    <style>
+      .parent-div {
+        display: flex;
+        /* column-gap: 0.5rem;
+        height: 75vh;
+        width: 50%;
+        margin: auto; */
+      }
+      .div1 {
+        background-color: green;
+        /* flex: 1; */
+        padding: 40px;
+      }
+      .div2 {
+        background-color: orange;
+        /* flex: 1; */
+        padding: 40px;
+      }
+      .div3 {
+        background-color: brown;
+        /* flex: 1; */
+        padding: 40px;
+      }
+
+      .div4 {
+        background-color: lightblue;
+        /* flex: 1; */
+        padding: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Mutation Observer in JavaScript</h1>
+    <div class="parent-div" id="elem">
+      <div contenteditable class="div1">Div 1</div>
+      <div id="otherDiv">
+        <div>inner div</div>
+      </div>
+      <div contenteditable class="div2">Div 2</div>
+      <div contenteditable class="div3">Div 3</div>
+      <div contenteditable class="div4">Div 4</div>
+    </div>
+    <button onclick="deleteDiv()">Delete Div</button>
+    <button onclick="deleteInnerDiv()">Delete Inner Div</button>
+    <button onclick="updateAttrDiv()">Update Attribute of Div</button>
+    <button onclick="updateDivValue()">Update value of Div</button>
+  </body>
+  <script>
+    let observer = new MutationObserver((data) => {
+      console.log(data);
+    });
+
+    // here elem most likely by default refers to elements with contenteditable
+    observer.observe(elem, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      characterDataOldValue: true,
+    });
+
+    function deleteDiv() {
+      document.getElementById("elem").children[0].remove();
+    }
+
+    function deleteInnerDiv() {
+      document.getElementById("otherDiv").children[0].remove();
+    }
+    function updateAttrDiv() {
+      document.getElementById("elem").children[0].className = "hello";
+    }
+    function updateDivValue() {
+      document.getElementById("elem").children[0].textContent = "banana";
+    }
+  </script>
+</html>
