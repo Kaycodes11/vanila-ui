@@ -28,8 +28,9 @@ div > h2 {
 }
 
 .item:first-child {
-  /* normally or when growing first flex item'll grow twice the size from rest of the flex items */
-  flex: 2 1 auto;
+  /* let' assume available space is 120px and it has five children */
+  /* so when growing this "first-child" will get 120 * 2/5 = 48px & remaining space (120-48) will be divided to other flex-child equally unless some of them uses flex property and when shrinking it will shrink (ogSize - 120 * 1/5) will be its new size while shrinking  */
+  flex: 2 1 auto; /* growingSize, shrinkingSize, initialSizeBeforeGrowOrShrink  */
 }
 
 .item {
@@ -39,8 +40,8 @@ div > h2 {
 
   /* how much flex item could grow/shrink based on the given flex-basis */
   /* if it's auto then it'll try to fit empty space */
-  /* 1 1 200px means , normally it could be 200px but its size could grow/shrink from there for each flex item */
-  /* 1 1 0 , take the avaiable empty space among flex children equally since here flex-grow is 1 */
+  /* 1 1 200px means , original size is 200px but when growing/shrinking all flex-child will add/subtract same amount of space from the available space */
+  /* 1 1 0 , take the available empty space among flex children equally since here flex-grow is 1 */
   flex: 1 1 auto;
   padding: 10px;
   background-color: rgba(17, 105, 121, 0.1);
