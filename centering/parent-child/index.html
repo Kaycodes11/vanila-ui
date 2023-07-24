@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>centering div within div</title>
+    <style>
+      .parent {
+        background: gray;
+        height: 400px;
+        width: 400px;
+        position: relative;
+      }
+
+      /* .child {
+        background: orange;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -50px 0 0 -50px;
+      } */
+
+      .child {
+        background: orange;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="child">This div is centered vertically and horizontally.</div>
+    </div>
+  </body>
+</html>
