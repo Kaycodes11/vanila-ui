@@ -15,35 +15,39 @@
     />
   </head>
   <body>
-    <!-- Navbar -->
-    <!-- <div class="flex-container">
-      <div class="flex-child one">One</div>
-      <div class="flex-child two">Two</div>
-      <div class="flex-child three">Three</div>
-      <div class="flex-child four">Four</div>
-      <div class="flex-child five">Five</div>
-      <div class="flex-child six">Six</div>
-      <div class="flex-child seven">Seven</div>
-      <div class="flex-child eight">Eight</div>
-      <div class="flex-child nine">Nine</div>
-      <div class="flex-child 10">Ten</div>
+    <div class="grid-container">
+      <div class="grid-item item1">First</div>
+      <div class="grid-item item2">Second</div>
+      <div class="grid-item item3">Third</div>
+      <div class="grid-item item4">Fourth</div>
+      <div class="grid-item item5">Fifth</div>
+      <div class="grid-item item6">Sixth</div>
     </div>
+    <hr />
 
-    <div class="navbar">
-      <div class="flex-child one">One</div>
-      <div class="flex-child two">Two</div>
-      <div class="flex-child three">Three</div>
-      <div class="flex-child four">Four</div>
-      <div class="flex-child five">Five</div>
-      <div class="flex-child six">Six</div>
-      <div class="flex-child seven">Seven</div>
-      <div class="flex-child eight">Eight</div>
-      <div class="flex-child nine">Nine</div>
-      <div class="flex-child 10">Ten</div>
-    </div> -->
-    <button class="btn">
-      <input type="file" class="inputFile" name="file" id="file-upload" />
-      <label for="file-upload">Upload File</label>
-    </button>
+    <!-- This below is legacy approach that works on old browsers -->
+    <span class="btn btn-default btn-file"> Browse <input type="file" /> </span>
+    <hr />
+
+    <!-- label for="" and input id="" must be the same -->
+    <!-- <label for="file-upload" class="custom-fileUpload">custom upload</label>
+    <input type="file" id="file-upload" /> -->
+    <label class="custom-file-upload">
+      <input type="file" />
+      Custom Upload (label + input)
+    </label>
+    <hr />
+    <div class="prepend-container">
+      <input type="file" id="prependFile" />
+    </div>
+    <hr />
+    <script>
+      document.querySelector(".custom-file-upload").addEventListener("change", function (event) {
+        const fileName = event.target.files[0];
+        const label = document.querySelector(".custom-file-upload");
+        // const nodeList = label.childNodes;
+        // nodes[nodes.length - 1] = fileName ?? "Browse Files";
+      });
+    </script>
   </body>
 </html>
