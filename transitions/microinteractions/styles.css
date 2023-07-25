@@ -9,7 +9,7 @@ body {
 .page-title {
   margin-top: 30px;
 }
-
+/* override the default button styles */
 .button {
   position: relative;
   border: 0;
@@ -21,11 +21,12 @@ body {
   cursor: pointer;
   padding: 20px;
   margin: 20px;
-  width: 150px
+  width: 150px;
 }
 
 .button.accept {
   background-color: #28a745;
+  /* to not allow ".button.accept"'s children overflow; thus used overflow: hidden */
   overflow: hidden;
 }
 
@@ -39,11 +40,14 @@ body {
   opacity: 0;
 }
 
+/* this is where hiding ".fa.fa-check" */
 .button.accept .fa.fa-check {
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
+  /* inset: 0;  to center the element which has position: absolute; use inset but it isn't needed here */
+  /* background-color: red; for testing */
   width: 100%;
   height: 100%;
   left: 0;
@@ -51,6 +55,7 @@ body {
   transition: 0.4s bottom;
 }
 
+/* now, when  ".button.accept:hover" , reveal ".fa.fa-check by doing = bottom: 0 */
 .button.accept:hover .fa.fa-check {
   bottom: 0;
 }
@@ -60,7 +65,7 @@ body {
   overflow: hidden;
 }
 
-.button.delete .action {
+button.delete .action {
   display: block;
   transition: transform 0.4s, opacity 0.4s;
 }
@@ -86,48 +91,3 @@ body {
 .button.delete:hover .fa.fa-remove {
   top: 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**/

@@ -3,10 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Slice Effect in Vertical Direction</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Raleway"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
     <style>
       body {
         background-color: #ecf0f1;
@@ -34,6 +31,7 @@
 
       .button.vertical span {
         position: relative;
+        /* since this element is being overwritten by another element's style so z-index */
         z-index: 2;
         transition: 0.4s color;
       }
@@ -75,7 +73,9 @@
 
     <div class="button-container">
       <button class="button vertical">
+        <!-- ::before -->
         <span>Vertical Slice</span>
+        <!-- ::after -->
       </button>
     </div>
 

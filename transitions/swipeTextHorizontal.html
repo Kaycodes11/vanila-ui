@@ -3,10 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Swipe Text Effect in Horizontal Direction</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@600"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600" rel="stylesheet" />
     <style>
       body {
         background-color: #223e61;
@@ -15,12 +12,18 @@
       }
 
       h2 {
+        /* flex or grid */
         display: flex;
+        /* specified width */
         width: 100%;
+        /* specified height */
         height: 200px;
+        /* specified margin */
         margin: 24px auto;
+        /* alignment */
         justify-content: center;
         align-items: center;
+        /* gap */
       }
 
       h2.first {
@@ -28,6 +31,8 @@
       }
 
       .link {
+        /* inline-block allows to set a width and height on the element */
+        /* top-bottom margin & paddings aren't respected with `inline` but with inline-block are */
         display: inline-block;
         position: relative;
         font-size: 48px;
@@ -40,7 +45,13 @@
         display: block;
         transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
       }
+      
+      /* now when hovered on ".link" , ".initial-text" will move to X axis   */
+      .first .link:hover .initial-text {
+        transform: translateX(100%);
+      }
 
+      /* adding a pseudo element with its default state */
       .first .link::after {
         content: attr(data-swipe-text);
         position: absolute;
@@ -51,10 +62,7 @@
         transition: left 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
       }
 
-      .first .link:hover .initial-text {
-        transform: translateX(100%);
-      }
-
+      /* now bring back pseudo element back to screen when ".link" hovered */
       .first .link:hover::after {
         left: 0;
       }
@@ -64,6 +72,7 @@
     <h2 class="first">
       <a href="#" class="link" data-swipe-text="Changing Text">
         <span class="initial-text">Swipe Text Effect</span>
+        <!-- ::after -->
       </a>
     </h2>
 

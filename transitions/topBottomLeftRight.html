@@ -3,10 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Top and Bottom Left to Right and Right to Left Effects</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@600"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600" rel="stylesheet" />
     <style>
       body {
         background-color: #223e61;
@@ -30,8 +27,11 @@
       h2.second {
         background-color: #ff5e33;
       }
+      /* From here */
 
       .link {
+        /* by default inline element takes width and height from the html element or content; inline doesn't have the width, top or bottom margin */
+        /* by doing inline-block its width-height is now max-content & now it is animatable  */
         display: inline-block;
         position: relative;
         font-size: 48px;
@@ -39,10 +39,11 @@
         text-decoration: none;
       }
 
+      /* Here, added a pseudo element within link  */
       .first .link::before {
         content: "";
         position: absolute;
-        width: 0;
+        width: 10%;
         height: 5px;
         background-color: red;
         border-radius: 3px;
@@ -52,6 +53,7 @@
         transition: width 0.7s ease;
       }
 
+      /* when hovered on link , select "::before element" within it to do something like below */
       .first .link:hover::before,
       .first .link:hover::after {
         width: 100%;
@@ -60,7 +62,7 @@
       .first .link::after {
         content: "";
         position: absolute;
-        width: 0;
+        width: 10%;
         height: 5px;
         background-color: red;
         border-radius: 3px;
@@ -102,11 +104,19 @@
   </head>
   <body>
     <h2 class="first">
-      <a href="#" class="link">Top and Bottom Left to Right Effect</a>
+      <a href="#" class="link">
+        <!-- ::before -->
+        Top and Bottom Left to Right Effect
+        <!-- ::after -->
+      </a>
     </h2>
 
     <h2 class="second">
-      <a href="#" class="link">Top and Bottom Right to Left Effect</a>
+      <a href="#" class="link">
+        <!-- ::before -->
+        Top and Bottom Right to Left Effect
+        <!-- ::after -->
+      </a>
     </h2>
 
     <script src="script.js"></script>
