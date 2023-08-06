@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Layout</title>
+    <link rel="stylesheet" href="style.scss" />
+  </head>
+  <body>
+    <div id="app" data-state="collapsed">
+      <figure class="ui-figure" data-flip-bg>
+        <figcaption class="ui-caption">Animation</figcaption>
+      </figure>
+      <div class="ui-content">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore ullam hic consectetur ducimus neque ipsam
+          incidunt voluptatem voluptatum eos. Voluptatum minus omnis provident sit architecto, mollitia nihil aspernatur
+          sed praesentium.
+        </p>
+      </div>
+    </div>
+  </body>
+  <script>
+    const figureEl = document.querySelector(".ui-figure");
+    const captionEl = document.querySelector(".ui-caption");
+    const appEl = document.querySelector("#app");
+
+    appEl.addEventListener("click", () => {
+      const firstRect = figureEl.getBoundingClientRect(); // get position, width, x and y
+      console.log("firstRect: ", firstRect);
+      app.dataset.state = app.dataset.state === "collapsed" ? "expanded" : "collapsed";
+      // below method tells the browser to run the mentioned animation within it before the next repaint
+      requestAnimationFrame(() => {
+        const lastRect = figureEl.getBoundingClientRect();
+        console.log("lastRect: ", lastRect);
+
+        const dx = firstRect.left - lastRect.left; // X axis
+        const dy = firstRect.top - lastRect.top; //  Y axis
+        const dw = firstRect.width / lastRect.width;
+        const dh = firstRect.height / lastRect.height;
+
+        figureEl.style.setProperty("--dx", dx);
+        figureEl.style.setProperty("--dy", dy);
+        figureEl.style.setProperty("--dw", dw);
+        figureEl.style.setProperty("--dh", dh);
+
+        figureEl.dataset.flip = "invert";
+
+        requestAnimationFrame(() => {
+          figureEl.dataset.flip = "play";
+        });
+      });
+    });
+  </script>
+</html>

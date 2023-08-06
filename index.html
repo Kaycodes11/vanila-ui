@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Masters CSS Animations Workshop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.scss" />
+  </head>
+  <body>
+    <div id="app" class="isSuccess isLoading">
+      <small>Frontend Masters</small>
+      <h1>CSS Animation Workshop</h1>
+      <ul>
+        <li><a href="/00-fundamentals/">Fundamentals</a></li>
+        <li><a href="/01-transitions/">Transitions</a></li>
+        <li><a href="/02-keyframes/">Keyframe Animations</a></li>
+        <li><a href="/03-choreography/">Choreography</a></li>
+        <li><a href="/04-states/">States</a></li>
+        <li><a href="/05-layout/">Layout Animations</a></li>
+        <li><a href="/06-reactive/">Reactive Animations</a></li>
+        <li><a href="/examples/inflight/">Inflight Example</a></li>
+      </ul>
+      <!-- <div id="container"> -->
+      <!-- for the single ball -->
+      <!-- <div class="ball"></div> -->
+      <!-- for choregraphy or groupped animation -->
+      <!-- <div class="ball" style="--i: 0"></div> -->
+      <!-- <div class="ball" style="--i: 1"></div> -->
+      <!-- <div class="ball" style="--i: 2"></div> -->
+      <!-- <div class="ball" style="--i: 3"></div> -->
+      <!-- <div class="ball" style="--i: 4"></div> -->
+      <!-- </div> -->
+      <button class="button">click me</button>
+    </div>
+    <script>
+      const appEl = document.querySelector("#app");
+      const buttonEl = document.querySelector("button");
+      const machine = {
+        initial: "start",
+        states: {
+          start: {
+            on: { CLICK: "loading" },
+          },
+          loading: {
+            on: { CLICK: "success" },
+          },
+          success: {
+            on: { CLICK: "loading" },
+          },
+        },
+      };
+
+      buttonEl.addEventListener("click", function () {
+        const currentState = appEl.dataset.state ?? machine.initial;
+        const nextState = machine.states[currentState].on["CLICK"] ?? currentState;
+
+        appEl.dataset.state = nextState;
+      });
+    </script>
+  </body>
+</html>

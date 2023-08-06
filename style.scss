@@ -1,0 +1,158 @@
+@import "./styles/base.scss";
+
+:root {
+  --fg-color: blue;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  padding: 5vmin;
+  background-color: #f4f4f4;
+}
+
+#app {
+  // --bg: white;
+
+  &[data-state="loading"] {
+    --bg: orange;
+  }
+
+  &[data-state="success"] {
+    --bg: rgb(12, 184, 21);
+  }
+
+  background-color: var(--bg);
+}
+
+a {
+  color: blue;
+}
+
+h1 {
+  margin: 0;
+}
+
+small {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+ul {
+  margin: 1rem 0;
+}
+
+// .ball {
+//   height: 5vmin;
+//   width: 5vmin;
+//   left: 50vw;
+//   border-radius: 50%;
+//   background: radial-gradient(circle at bottom right, #fb2324, #fe932a);
+//   background: #fb2324;
+
+//   // use "all" which will basically transition all the transitionable properties used by itself, its pseduo elements or child or child's pseudo elements
+//   // transition-property: background, transform; /* here put the affected properties by transition  */
+//   // transition-timing-function: linear, ease-in-out; /* background = linear, transform = ease-in-out */
+//   // transition-duration: 0s; /* if needed to use 0 use 0s */
+
+//   // transition: all 2s 0.5s ease-in-out; // property, delay, duration, timing-function
+//   // transition-property: background, transform; /* overwrite all to "background, transform"  */
+
+//   // &:hover {
+//   //   padding: 3rem;
+//   //   background: blue;
+//   //   transform: scale(2);
+//   //   transition-delay: 0.5s;
+//   //   transition-duration: 1s, 3s; /* background's transition 1s, transform's transition duration 3s */
+//   // }
+
+//   animation-name: move-like-a-square, red-to-green;
+//   animation-duration: 2s; // this animation will run for 4s then move back to its default position
+//   // animation-delay: 1s;
+//   animation-fill-mode: both; // "both" allows to start at given 0%  & not snapping at given 100%
+//   animation-iteration-count: infinite;
+//   // animation-direction: reverse; // 100% to 0%
+
+//   &:hover {
+//     animation-play-state: paused;
+//   }
+// }
+
+// @keyframes move-like-a-square {
+//   // 0%, 100% {transform: none;}; // same  from, to {transform: none;}
+
+//   0% {
+//     transform: none;
+//     // transform: translateX(-20vw);
+//   }
+
+//   25% {
+//     // animation-timing-function: linear;
+//     transform: translateX(20vw);
+//   }
+
+//   50% {
+//     // to maintain / use the already path traveled on X axis previously, use it again below
+//     transform: translateX(20vw) translateY(20vw);
+//   }
+
+//   75% {
+//     transform: translateX(0) translateY(20vw);
+//   }
+
+//   100% {
+//     transform: none; // now move towards the 0% [ transform: translateX(0) translateY(0) ]
+//     // transform: translateY(-20vw);
+//   }
+// }
+
+// @keyframes red-to-green {
+//   // from and to refers to 0% and 100%
+//   from {
+//     background: red;
+//     // now if there's animation before it that uses transform then it'll be overwritten with below
+//     transform: scale(0);
+//   }
+//   to {
+//     background: green;
+//     // now if there's animation before it that uses transform then it'll be overwritten with below
+//     transform: scale(1);
+//   }
+// }
+
+// chreography or groupping animation
+.ball {
+  height: 10vmin;
+  width: 10vmin;
+  left: 50vw;
+  border-radius: 50%;
+  background: radial-gradient(circle at bottom right, #fb2324, #fe932a);
+  background: #fb2324;
+
+  --duration: 1s;
+  --stager: 0.5s;
+  --interval: calc(var(--duration) - var(--stager));
+
+  animation: move-right var(--duration) calc(var(--interval) * var(--i)) both;
+}
+
+@keyframes move-right {
+  from {
+    transform: none;
+  }
+
+  to {
+    transform: translateX(25vw);
+  }
+}
+
+.button {
+  appearance: none;
+  background: blue;
+  color: white;
+  font-weight: bold;
+  padding: 2rem 3rem;
+  border: none;
+  transition: all 0.3s;
+
+  // opacity: var(--bg);
+}
