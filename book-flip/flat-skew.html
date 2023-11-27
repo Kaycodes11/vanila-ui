@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flat and skew animation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+        .init {
+            display: block;
+            opacity: 0;
+        }
+
+        #title {
+            transition: all 2s ease;
+            position: absolute;
+        }
+
+        .animate {
+            position: absolute;
+            box-shadow: 0px 0px 20px black;
+            opacity: 1;
+        }
+
+        .myframe {
+            transition: all 2s ease;
+            position: absolute;
+            overflow: hidden;
+        }
+
+        .myframe>.overlap {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 999;
+        }
+
+        body {
+            overflow: hidden;
+            background: #eee;
+            color: #333;
+        }
+
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        h1,
+        p {
+            font-family: 'Open Sans', sans-serif;
+            text-align: center;
+            font-weight: 200;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="title" class="init">
+        <h1>Impressive title goes here</h1>
+        <p>Animation will begin soon.</p>
+    </div>
+    <div class="myframe init">
+        <iframe src="http://demo.opencart.com/" scrolling="no" class=""></iframe>
+    </div>
+    <div class="myframe init">
+        <iframe src="http://demo.opencart.com/index.php?route=product/product&path=33&product_id=30" scrolling="no"
+            class=""></iframe>
+    </div>
+    <div class="myframe init">
+        <iframe src="http://demo.opencart.com/index.php?route=product/category&path=18" scrolling="no"
+            class=""></iframe>
+    </div>
+
+</body>
+<script>
+    var frameSize = [400, 600],
+        delay = 1000,
+        gap = 2000,
+        frames = [],
+        framesCount = 0,
+        translateXs = [],
+        transform = 'scale(0.75) matrix(0.994,-0.197,0.635,0.652,0,0)',
+        transforms = [],
+        docW, docH, vertMiddle,
+        scrolls = [400, 1000, 1600, 0],
+        scrollsCount = scrolls.length,
+        scrollDuration = 1200,
+        scrollGap = 250 + scrollDuration;
+
+    $(document).ready(function () {
+        docW = $(document).width();
+        docH = $(document).height();
+
+        setTimeout('animateTitle()', delay);
+
+        var ae = $('.myframe');
+        framesCount = ae.length;
+        for (var i = 0; i < framesCount; i++) {
+            frames[i] = ae.eq(i);
+            $(frames[i]).width(docW + 'px')
+                .height(docH + 'px')
+                .css('z-index', 100 - i)
+                .prepend($(document.createElement('div')).addClass('overlap'));
+        }
+        $('iframe').height(Math.max.apply(Math, scrolls) + frameSize[1] + "px");
+        vertMiddle = (docH - frameSize[1]) / 2;
+        setTimeout('animate(0)', delay * 2);
+    });
+
+    function animateTitle() {
+        var title = $('#title'),
+            titleHeight = $(title).height();
+
+        $(title).css('top', (docH - titleHeight) / 2 + "px")
+            .width(docW + "px")
+            .removeClass('init');
+
+        setTimeout(function () {
+            $(title).css('top', '0px');
+        }, delay);
+    }
+
+    function animate(i) {
+        var _pos = (docW - frameSize[0]) / 2;
+        for (var j = 0; j <= i; j++) {
+            translateXs[j] = _pos - ((i - j) * frameSize[0] / 2);
+            _pos += frameSize[0] / 2;
+        }
+
+        setTimeout(function () {
+            $(frames[i]).addClass('animate')
+                .width(frameSize[0])
+                .height(frameSize[1])
+                .css("top", vertMiddle + "px");
+            for (var j = 0; j < framesCount; j++) {
+                if (j != i) {
+                    transforms[j] = 'translateX(' + translateXs[j] + 'px)' + transform;
+                } else {
+                    transforms[j] = 'translateX(' + translateXs[j] + 'px)';
+                }
+                $(frames[j]).css('transform', transforms[j]);
+            }
+            setTimeout(function () {
+                $(frames[i]).css('transform', 'translateX(' + translateXs[i] + 'px)' + transform);
+            }, gap);
+            if (i < framesCount - 1) {
+                setTimeout('animate(' + (i + 1) + ')', gap);
+            } else {
+                setTimeout('scroll(0,0)', gap + gap);
+            }
+        }, gap);
+    }
+
+    function scroll(i, j) {
+        $(frames[i]).animate({ scrollTop: scrolls[j] }, { duration: scrollDuration, easing: 'swing' });
+        if (j == scrollsCount - 1) {
+            scrollGap = 0;
+        }
+        if (i < framesCount - 1) {
+            setTimeout('scroll(' + (i + 1) + ',' + j + ')', scrollGap);
+        } else if (j < scrollsCount - 1) {
+            setTimeout('scroll(0,' + (j + 1) + ')', scrollGap);
+        }
+    }
+</script>
+
+</html>

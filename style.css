@@ -19,19 +19,19 @@
 }
 
 .inner {
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
   border: 1px solid black;
 
   /* Translate Element at X / horizontal  axis */
   /* transform: translate(50%); */
-  transform: translate(-50px);
+  /* transform: translate(-50px); */
   /* transform: translateX(100px); */
 
   /* Translate Element at Y / vertical axis */
-  transform: translate(0, 50px);
+  /* transform: translate(0, 50px); */
   /* transform: translateY(100px); */
 
   /* both axis */
-  transform: translate(50px, 50px);
+  transform: translate(20px, 40px); /* left right, top bottom */
 }

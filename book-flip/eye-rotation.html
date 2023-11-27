@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eye Rotation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        <style>* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .bg {
+            background-color: #efefef;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .holder {
+            width: 400px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .circle-mask {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .magnetic-image {
+            width: 65%;
+            height: 65%;
+            position: absolute;
+            top: 25%;
+            left: 20%;
+            transform: translate(-50%, -50%);
+            transition: transform 0.3s ease;
+        }
+
+        .glare {
+            position: absolute;
+            top: 45%;
+            left: 40%;
+            /*   width: 50%;
+  height: 50%; */
+            opacity: 50%;
+            max-height: 30%;
+            mix-blend-mode: overlay;
+            filter: blur(1px);
+            /*   transform: translate(-50%, -50%); */
+        }
+
+        .front {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 103%;
+            height: 103%;
+            filter: blur(0.1px);
+        }
+
+        .front {
+            z-index: 10;
+        }
+
+        .glare {
+            mix-blend-mode: overlay;
+            z-index: 8;
+        }
+
+        .magnetic-image {
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            filter: saturate(0%);
+            z-index: 3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg">
+        <div class="holder">
+            <div class="circle-mask">
+                <img class="front" src="https://raw.githubusercontent.com/nayan8121999/public-images/main/front.png"
+                    alt="Your Image">
+                <img class="glare" src="https://raw.githubusercontent.com/nayan8121999/public-images/main/galre.png"
+                    alt="">
+                <img class="magnetic-image"
+                    src="https://raw.githubusercontent.com/nayan8121999/public-images/main/eyeball.png" alt="">
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script>
+    const frontImage = document.querySelector(".front");
+    const magneticImage = document.querySelector(".magnetic-image");
+    let timeout;
+
+    document.addEventListener("mousemove", (event) => {
+        clearTimeout(timeout);
+
+        const x = event.clientX;
+        const y = event.clientY;
+
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+
+        const distanceX = x - centerX;
+        const distanceY = y - centerY;
+
+        const maxDistance = Math.sqrt(centerX ** 2 + centerY ** 2);
+
+        const translateX = (distanceX / maxDistance) * 10;
+        const translateY = (distanceY / maxDistance) * 10;
+        const translateX1 = (distanceX / maxDistance) * 30;
+        const translateY1 = (distanceY / maxDistance) * 30;
+
+        magneticImage.style.transition = "transform 0.3s ease";
+        magneticImage.style.transform = `translate(${translateX1}%, ${translateY1}%)`;
+        frontImage.style.transition = "transform 0.3s ease";
+        frontImage.style.transform = `translate(${translateX * 0.3}%, ${translateY * 0.3
+            }%)`;
+
+        //   timeout = setTimeout(() => {
+        //     magneticImage.style.transform = "translate(0%, 0%)";
+        //     frontImage.style.transform = "translate(0%, 0%)";
+        //   }, 300);
+    });
+
+</script>
+
+</html>

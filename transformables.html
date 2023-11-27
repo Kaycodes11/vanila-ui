@@ -18,15 +18,17 @@
         margin: 100px auto;
       }
 
-      .inner {
+      /* .inner {
         width: 200px;
         height: 200px;
         border: 1px solid black;
         transform: rotate(20deg);
-      }
+      } */
       .inline {
-        display: inline-block;
-        transform: rotate(20deg);
+        /* to apply transform (i.e. readymade or keyframe animation) if the element is inline like here then */
+        /* must set the display to "inline-block" as below ↓ */
+        display: inline-block; 
+        transform: rotate(20deg); 
       }
     </style>
   </head>
@@ -36,5 +38,6 @@
     <div class="wrapper">
       <span class="inline">Text Text Text Text</span>
     </div>
+
   </body>
 </html>

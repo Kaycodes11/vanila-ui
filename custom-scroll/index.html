@@ -57,6 +57,7 @@
       }
 
       /* To show the "un-scrolled area"; here styles must be same as the above */
+      /* Reminder: ::-webkit-scrollbar is a pseduo-element and so it could be applied on element directly or class, id */
       #style-1::-webkit-scrollbar-thumb {
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
         border-radius: 10px; /* rounding however much scrolled shape */
@@ -82,7 +83,7 @@
         <div class="force-overflow"></div>
       </div>
 
-      <!-- <div class="scrollbar" id="style-2">
+      <div class="scrollbar" id="style-2">
         <div class="force-overflow"></div>
       </div>
 
@@ -120,8 +121,8 @@
 
       <div class="scrollbar" id="style-11">
         <div class="force-overflow"></div>
-      </div> -->
-      <!-- 
+      </div>
+      
       <div class="scrollbar" id="style-13">
         <div class="force-overflow"></div>
       </div>
@@ -132,7 +133,7 @@
 
       <div class="scrollbar" id="style-15">
         <div class="force-overflow"></div>
-      </div> -->
+      </div>
     </div>
   </body>
 </html>

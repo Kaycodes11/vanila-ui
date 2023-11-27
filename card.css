@@ -14,10 +14,12 @@ body {
   color: #333333;
 }
 
+/* .polaroid-card applided on <figure> which is a blcok element */
+/*  but since I want it sit side by side & only take required width thus used "display: inline-block" to turn block element's behavior into "inline" */
 .polaroid-card {
   display: inline-block;
   background-color: #eee6d8;
-  /* how much space to make around this element and its child element? */
+  /* how much space to "make around this element" and its child element? */
   padding: 10px;
   box-shadow: 4px 4px 8px -4px rgba(0, 0, 0, 0.7);
   /* transition: transform 0.5s; */
@@ -27,7 +29,7 @@ body {
   text-align: center;
   font-size: 12px;
   font-weight: bold;
-  /* how much space to leave from top? */
+  /* how much space to "leave from top based on this element"? */
   margin-top: 6px;
   letter-spacing: 2px;
 }
@@ -40,10 +42,10 @@ body {
   transform: rotate(-12deg);
 }
 
-/* ::before add something before this selected element with the following styles */
+/* ::before adds something before this selected element with the following styles */
 .polaroid-card:nth-of-type(even)::before {
   content: "";
-  display: block;
+  display: block; /* whatever added if not showing then try using "display: block" */
   background-color: rgba(222, 220, 200, 0.66);
   width: 100px;
   height: 25px;
@@ -59,6 +61,7 @@ body {
   transform: translate(140px, -5px) rotate(25deg);
 }
 
+/* usually, transition can refer to properties from itself or from its children */
 .polaroid-card:nth-of-type(1) {
   transition: transform 0.75s;
 }
