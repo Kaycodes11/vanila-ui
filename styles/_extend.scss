@@ -1,0 +1,39 @@
+.error {
+    border: 1px #f00;
+    background-color: #fdd;
+
+    &--serious {
+        @extend .error;
+        border-width: 3px;
+    }
+}
+
+
+.error:hover {
+    background-color: #fee;
+}
+
+.error--serious {
+    @extend .error;
+    border-width: 3px;
+}
+
+
+// Placeholder Selector
+
+.alert:hover,
+%strong-alert {
+    font-weight: bold;
+}
+
+%strong-alert:hover {
+    color: red;
+}
+
+// # Private Placeholders starts with eithe '_' or '-'
+
+
+// Note: so, @Mixin and @Extend both allows re-usability and encapsulation , so when to use which one ?
+
+
+// if style are related then @Extend, unrealted or needed arguments then @Mixin

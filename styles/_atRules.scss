@@ -1,0 +1,178 @@
+// At Rules gives extra functionalties on top of the CSS such as mixins, function, extend, error etc
+
+// foundation/_code.scss
+code {
+    padding: .25em;
+    line-height: 0;
+}
+
+// foundation/_lists.scss
+ul,
+ol {
+    text-align: left;
+
+    & & {
+        padding: {
+            bottom: 0;
+            left: 0;
+        }
+    }
+}
+
+// Note: @import and @use does the same thing: loading styles from "other stylesheets"
+
+
+// 1. @use only loads or make available "variable", "function" & "mixins" from other stylsheets in the current file
+
+// 2. @use only loads each file "just once"
+
+// usage -> style.scss *during import '_' is omitted and single quote and semicolor must be used as below
+
+// @use simply allows to load "variable", "mixins", "function" from other "Scss stylesheets" like here it's loading from foundation directory
+
+// variable <namespace = foundation>.<variable_name>
+// function <namespace = foundation>.<function_name>()
+// mixins @include <namespace = foundation>.<mixin>()
+
+@use 'foundation/code';
+@use 'foundation/lists';
+
+
+/*
+// src/_corners.scss
+
+$radius: 3px;
+
+@mixin rounded {
+    border-radius: $radius;
+}
+
+// style.scss
+@use "src/corners";
+
+.button {
+    @include corners.rounded; // by default the namespace is without '_' and without extension thus file-name
+    padding: 5px + corners.$radius;
+}
+
+// ## using a custom name for namespace (rather than default fileName)
+
+// src/_corners.scss
+$radius: 3px;
+
+@mixin rounded {
+  border-radius: $radius;
+}
+// style.scss
+@use "src/corners" as c;
+
+.button {
+  @include c.rounded;
+  padding: 5px + c.$radius;
+}
+
+// Not using the default or custom namespace but rather using it directly 
+
+// src/_corners.scss
+$radius: 3px;
+
+@mixin rounded {
+  border-radius: $radius;
+}
+// style.scss
+@use "src/corners" as *;
+
+.button {
+  @include rounded;
+  padding: 5px + $radius; // since used '*' so I can use any variable, mixins or function directly like this ( just ensure there're no name conflict in the local scope)
+}
+
+*/
+
+
+// # Private memeber : so if any stylesheet has such the loading module won't be able to access or see it
+
+
+/*
+
+// src/_corners.scss
+$-radius: 3px;
+
+@mixin rounded {
+  border-radius: $-radius;
+}
+
+
+// style.scss
+@use "src/corners";
+
+.button {
+  @include corners.rounded; // this is fine since using it directly 
+
+  // This is an error! $-radius isn't visible outside of `_corners.scss`.
+  padding: 5px + corners.$-radius;
+}
+
+*/
+
+
+// # with Mixins
+
+/*
+
+// _library.scss
+$-black: #000;
+$-border-radius: 0.25rem;
+$-box-shadow: null;
+
+/// If the user has configured `$-box-shadow`, returns their configured value.
+/// Otherwise returns a value derived from `$-black`.
+@function -box-shadow() {
+  @return $-box-shadow or (0 0.5rem 1rem rgba($-black, 0.15));
+}
+
+@mixin configure($black: null, $border-radius: null, $box-shadow: null) {
+  @if $black {
+    $-black: $black !global;
+  }
+  @if $border-radius {
+    $-border-radius: $border-radius !global;
+  }
+  @if $box-shadow {
+    $-box-shadow: $box-shadow !global;
+  }
+}
+
+@mixin styles {
+  code {
+    border-radius: $-border-radius;
+    box-shadow: -box-shadow();
+  }
+}
+
+
+// style.scss
+@use 'library';
+
+@include library.configure(
+  $black: #222,
+  $border-radius: 0.1rem
+);
+
+@include library.styles; // These mixin will add or overwrite some styles on "library"
+
+*/
+
+// ## Reassgning Variables
+
+// _library.scss
+$color: red;
+// _override.scss
+
+@use 'library';
+// library.$color: blue; // overwritten
+
+// style.scss
+@use 'library';
+@use 'override';
+// @debug library.$color;  //=

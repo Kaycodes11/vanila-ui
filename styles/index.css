@@ -1,0 +1,107 @@
+.btn h1, .btn-rounded h1 {
+  font-weight: bolder;
+}
+.btn button, .btn-rounded button {
+  padding: 20px 30px;
+  border: none;
+  background-color: aquamarine;
+}
+.btn button:hover, .btn-rounded button:hover {
+  background-color: aqua;
+  cursor: pointer;
+}
+.btn button:hover::after, .btn-rounded button:hover::after {
+  content: " =>";
+}
+
+.btn-rounded {
+  border-radius: 10px;
+  background-color: lightblue !important;
+}
+
+.alert:hover {
+  font-weight: bold;
+}
+[dir=rtl] .alert {
+  margin-left: 0;
+  margin-right: 10px;
+}
+:not(.alert) {
+  opacity: 0.8;
+}
+
+.accordion {
+  max-width: 600px;
+  margin: 4rem auto;
+  width: 90%;
+  font-family: "Raleway", sans-serif;
+  background: #f4f4f4;
+}
+.accordion__copy {
+  display: none;
+  padding: 1rem 1.5rem 2rem 1.5rem;
+  color: gray;
+  line-height: 1.6;
+  font-size: 14px;
+  font-weight: 500;
+}
+.accordion__copy--open {
+  display: block;
+}
+
+.sidebar.app-background {
+  background-color: #c6538c;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.app-background {
+  background-color: #036;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.reset-buttons, .action-buttons {
+  box-sizing: border-box;
+  border-top: 1px rgba(0, 0, 0, 0.12) solid;
+  padding: 16px 0;
+  width: 100%;
+}
+.reset-buttons:hover, .action-buttons:hover {
+  border: 2px rgba(0, 0, 0, 0.5) solid;
+}
+
+.action-buttons {
+  color: #4285f4;
+}
+
+.reset-buttons {
+  color: #cddc39;
+}
+
+.one button {
+  padding: 30px 30px;
+  border: none;
+  background-color: red;
+}
+.one button:hover {
+  background-color: aqua;
+  cursor: pointer;
+}
+.one button:hover::after {
+  content: " =>";
+}
+
+.two h1 {
+  font-weight: lighter;
+}
+.two button {
+  padding: 30px 30px;
+  border: none;
+  background-color: aquamarine;
+}
+.two button:hover {
+  background-color: aqua;
+  cursor: pointer;
+}
+.two button:hover::after {
+  content: " =>";
+}/*# sourceMappingURL=index.css.map */

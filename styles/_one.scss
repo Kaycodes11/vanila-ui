@@ -1,0 +1,141 @@
+.btn {
+    h1 {
+        font-weight: bolder;
+    }
+
+    button {
+        padding: ($basicPadding * 2) 30px;
+        border: none;
+        background-color: $btnBgColor;
+
+        &:hover {
+            background-color: $btnBgHoverColor;
+            cursor: pointer;
+
+            &::after {
+                content: " =>";
+            }
+        }
+    }
+}
+
+// inheritance alike ( here it inherits from '.btn' class )
+.btn-rounded {
+    @extend .btn;
+    border-radius: 10px;
+    background-color: lightblue !important;
+}
+
+// update the above style with mixins
+@mixin basicBtn($bgColor) {
+    padding: ($basicPadding + 20px) 30px;
+    border: none;
+    background-color: $bgColor;
+
+    &:hover {
+        background-color: $btnBgHoverColor;
+        cursor: pointer;
+
+        &::after {
+            content: " =>";
+        }
+    }
+}
+
+
+// This is how to extend/inherit from mixin
+
+// .btn-rounded {
+//     @include basicBtn(green); 
+//     border-radius: 20px;
+//     background-color: yellow !important;
+// }
+
+
+// # parent selector
+
+.alert {
+
+    // The parent selector can be used to add pseudo-classes to the outer
+    // selector.
+    &:hover {
+        font-weight: bold;
+    }
+
+    // below "dir=rtl" is an attribute selector
+    [dir=rtl] & {
+        margin-left: 0;
+        margin-right: 10px;
+    }
+
+    // You can even use it as an argument to pseudo-class selectors.
+    :not(&) {
+        opacity: 0.8;
+    }
+}
+
+
+//  # adding suffixes
+
+.accordion {
+    max-width: 600px;
+    margin: 4rem auto;
+    width: 90%;
+    font-family: "Raleway", sans-serif;
+    background: #f4f4f4;
+
+    &__copy {
+        display: none;
+        padding: 1rem 1.5rem 2rem 1.5rem;
+        color: gray;
+        line-height: 1.6;
+        font-size: 14px;
+        font-weight: 500;
+
+        &--open {
+            display: block;
+        }
+    }
+}
+
+// when any mixin (as below) uses '&' and it is called outside any style rule; then it is null thus falsy and so if-else can be used accordingly
+@mixin app-background($color) {
+    #{if(&, '&.app-background', '.app-background')} {
+        background-color: $color;
+        color: rgba(#fff, 0.75);
+    }
+}
+
+
+// calling mixing within any style rule 
+.sidebar {
+    @include app-background(#c6538c);
+}
+
+// calling mixing outside of style rule 
+@include app-background(#036);
+
+
+// # placeholder selector: starts with '%' and it isn't emitted to css (i.e. not compiled to css); then why to use it? it can still be extended
+
+
+%toolbelt { // so %toolbelt won't be compiled to css
+    box-sizing: border-box;
+    border-top: 1px rgba(#000, .12) solid;
+    padding: 16px 0;
+    width: 100%;
+
+    &:hover {
+        border: 2px rgba(#000, .5) solid;
+    }
+}
+
+.action-buttons {
+    @extend %toolbelt; // it will take all styles from '%toolbelt' once again, '%toolbelt itself won't be compiled but rather its style will be inherited into ".action-button"'
+    color: #4285f4;
+}
+
+.reset-buttons {
+    @extend %toolbelt;
+    color: #cddc39;
+}

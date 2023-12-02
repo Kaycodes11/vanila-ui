@@ -1,0 +1,31 @@
+$btnBgColor : aquamarine;
+$btnBgHoverColor : aqua;
+$basicPadding : 10px;
+
+@import './one'; // has to use single quotes here and semicolon
+
+
+.one {
+    button {
+        @include basicBtn(red);
+    }
+}
+
+.two {
+    h1 {
+        font-weight: lighter;
+    }
+
+    button {
+        // padding: $basicPadding;
+        // border: none;
+        // background-color: $btnBgColor;
+
+        // same button styles as above but with mixin
+        @include basicBtn($btnBgColor);
+
+        // &::after {
+        //     content: " =>";
+        // }
+    }
+}
