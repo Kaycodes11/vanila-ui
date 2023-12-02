@@ -1,0 +1,125 @@
+.alert {
+
+    // The parent selector can be used to add pseudo-classes to the outer selector.
+    &:hover {
+        font-weight: bold;
+    }
+
+    // &::before {}
+
+    // &::after {}
+
+    // It can also be used to style the outer selector in a certain context, such
+    // as a body set to use a right-to-left language.
+    [dir=rtl] & {
+        margin-left: 0;
+        margin-right: 10px;
+    }
+
+    // You can even use it as an argument to pseudo-class selectors.
+    :not(&) {
+        opacity: 0.8;
+    }
+}
+
+/*
+
+compiled:
+
+.alert:hover {
+  font-weight: bold;
+}
+[dir=rtl] .alert {
+  margin-left: 0;
+  margin-right: 10px;
+}
+:not(.alert) {
+  opacity: 0.8;
+}
+
+*/
+
+
+// ## Adding Suffixes
+
+
+.accordion {
+    max-width: 600px;
+    margin: 4rem auto;
+    width: 90%;
+    font-family: "Raleway", sans-serif;
+    background: #f4f4f4;
+
+    &__copy {
+        display: none;
+        padding: 1rem 1.5rem 2rem 1.5rem;
+        color: gray;
+        line-height: 1.6;
+        font-size: 14px;
+        font-weight: 500;
+
+        &--open {
+            display: block;
+        }
+    }
+}
+
+
+
+// ## accessing the outer selector within inner selector
+
+
+.main aside:hover .siderbar p {
+    parent-selector: &;
+}
+
+/*
+compiled
+.main aside:hover,
+.sidebar p {
+  parent-selector: .main aside:hover, .sidebar p;
+}
+*/
+
+
+
+// ## if the '&' used outside of any style rules then it return null and so
+
+
+@mixin app-background($color) {
+    #{if(&, '&.app-background', '.app-background')} {
+        background-color: $color;
+        color: rgba(#fff, 0.75);
+    }
+}
+
+
+// since it isn't within any style rules so  it'll mapped to ".app-background" above
+@include app-background(#036);
+
+
+// since it is within a style rules so it'll mapped to "&.app-background" above
+.siderbar {
+    @include app-background(#c6538c);
+}
+
+
+// ## Advanced Nesting (Content Projection)
+
+@use "sass:selector";
+
+@mixin unify-parent($child) {
+    @at-root #{selector.unify(&, $child)} {
+        @content;
+    }
+}
+
+.wrapper .field {
+    @include unify-parent("input") {
+        /* ... */
+    }
+
+    @include unify-parent("select") {
+        /* ... */
+    }
+}

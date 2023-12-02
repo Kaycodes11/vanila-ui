@@ -1,0 +1,87 @@
+.print-only {
+    display: none;
+
+    @media print {
+        display: block;
+    }
+}
+
+/*
+compiled output:
+
+.print-only {
+  display: none;
+}
+
+@media print {
+  .print-only {
+    display: block;
+  }
+}
+*/
+
+
+@media (min-width: $layout-breakpoint-small) {
+    .hide-extra-small {
+        display: none;
+    }
+}
+
+/*
+
+@media (min-width: 960px) {
+  .hide-extra-small {
+    display: none;
+  }
+}
+
+*/
+
+
+// @supports
+
+@mixin sticky-position {
+  position: fixed;
+  
+  @supports (position: sticky) {
+    position: sticky;
+  }
+}
+
+.banner {
+  @include sticky-position;
+}
+
+/*
+// CSS OUTPUT
+
+.banner {
+  position: fixed;
+}
+
+@supports (position: sticky) {
+  .banner {
+    position: sticky;
+  }
+}
+
+*/
+
+// @keyframes
+
+@keyframes slide-in {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  70% {
+    margin-left: 90%;
+    width: 150%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}

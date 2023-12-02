@@ -1,0 +1,79 @@
+// write a selector that matches the outer selector and an element selector
+
+
+
+@mixin unify-parent($child) {
+
+    // if used '&' expression; SASS will automatically add outer selector to inner selector
+    // @at-root tellss SASS explicitly to "exclude" the outer selector ("only take style from within @at-root's block")
+    @at-root #{selector.unify(&, $child)} {
+        @content;
+    }
+}
+
+
+.wrapper .field {
+    @include unify-parent("input") {
+        // projection
+    }
+
+    @include unify-parent("select") {
+        // projection
+    }
+}
+
+
+/*
+
+.wrapper input.field {....}
+
+.wrapper select.field {....}
+
+*/
+
+
+@media print {
+    .page {
+        width: 8in;
+
+        // .page { color: #111111 } => since it said "without: <which rule shall be excluded when compiling -> 'media'"
+
+        @at-root (without: media) {
+            color: #111111;
+        }
+
+        // with: rule => exclude all at-rules while preserving only style rules (define within at's block)
+        @at-root(with: rule) {
+            font-size: 1.2rem;
+        }
+
+        // (with: all) => excluded all at-rules and "style rules defined within its at's block )
+
+    }
+}
+
+
+/*
+
+compiled:
+
+@media print {
+
+    .page {
+        width: 8in;
+    }
+}
+
+.page {
+    color: #111111;
+}
+
+.page {
+
+    font-size: 1.2rem;
+}
+
+
+
+
+*/
