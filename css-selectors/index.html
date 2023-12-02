@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS selectors</title>
+    <style>
+        * {
+            font-size: 1.2rem;
+        }
+
+        .red {
+            background: gray;
+        }
+
+        div.red.green-text {
+            background: green;
+            color: bisque;
+        }
+
+        span,
+        li {
+            background: goldenrod;
+        }
+
+        span,
+        li.red {
+            background: red;
+        }
+
+        /* even if ul li says "background: lightseagreen", not all li will be "lightseagreen" and li with "class red" will remain red since class has more specificity than "tag selection" => to overwrite, use "!important"*/
+
+        ul li {
+            background: lightseagreen;
+            /* background: lightseagreen !important; */
+        }
+
+        /* div b {
+            background: darkgreen;
+            color: orange;
+        } */
+
+        /* child selector: To select the direct child and so this won't work since b isn't the direct child of "div" */
+
+        div>b {
+            background: seagreen;
+        }
+
+        /* child selector: now it works since b is the direct child of "span" */
+
+        span>b {
+            background: aqua;
+        }
+
+        /* sibling selector: select only the siblings that comes after li with class "red" and at the same level, so how ? */
+        /* Reminder: This will select all siblings (at the same level) after "li.red" */
+
+        li.red~li {
+            background: lightgreen
+        }
+
+        /* sibling selector: select only the next sibling that comes after li with class "red" and at the same level, so how ? */
+        /* Reminder: This will select only the next sibling (at the same level) after "li.red" */
+
+        li.red+li {
+            background: blueviolet;
+        }
+
+        /* pseduo class could be attached to a "tag", "className" or "id" */
+
+        li:hover {
+            background: darkorange !important;
+            /* once again due to selected by "Tag", it has "specificity" issue thus "!important"*/
+        }
+
+        li:last-of-type {
+            /* once again due to selected by "Tag", it has "specificity" issue thus "!important"*/
+            background: black !important;
+            color: white !important;
+        }
+
+        li:nth-of-type {
+            background: green !important;
+        }
+
+        /* select the below tag first or last from the whole document within body using :first-of-type and :last-of-type */
+
+        span:first-of-type {
+            background: lightslategray !important;
+            color: darkblue !important;
+        }
+
+        /* This will find all span tags from within the body */
+        span:only-of-type {
+            background: red !important;
+            color: white !important;
+        }
+
+        /* to select middle children, use :nth-of-type(4) */
+        li:nth-last-of-type(2) {
+            background: magenta !important;
+            color: darkblue !important;
+        }
+
+        /* so here it says, select all li tags excluding the li which has ".green class" */
+        li:not(.green) {
+            background: greenyellow !important;
+        }
+
+        /* ::before is a "pseduo element" that means => it could have its own style , it can use pseduo class like hover and surely it could take more "pseduo classes" on itself */
+        div.red::before {
+            content: 'Before';
+            background: blue;
+        }
+
+        div.red::after {
+            content: "After";
+            background: mediumslateblue;
+        }
+
+        /* select by the attributes */
+
+        [data-red] {
+            background: darkred !important;
+            color: white !important;
+        }
+
+        [data-red="true"] {
+            background: teal !important;
+            color: white !important;
+
+        }
+
+        /* The value of this attribute should start with 12 , then it could have whatever value */
+        /* [data-no^="12"] {
+            background: tomato !important;
+            color:  white !important;
+
+        } */
+
+        /* The value of this attribute should end with 12 , before it could have whatever value */
+
+        /* [data-no$="34"] {
+            background: tomato !important;
+            color: white !important;
+        } */
+
+        /* To select the attribute which has e.g. 23 one after another then might use '*' as well */
+        /* so e.g 23 will work but 24 won't since it isn't one after another in the value of this data- attribute */
+
+        [data-no*="23"] {
+            background: tomato !important;
+            color: white !important;
+        }
+
+
+        input:required {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <input type="text" required> -->
+    <div class="red green-text" data-red>This is a div</div>
+    <div class="red green-text" data-red="true">This is a div</div>
+    <div class="red green-text" data-no="1234">This is a div</div>
+    <span id="blue">This is span with id: blue</span>
+    <div>
+        <span id="blue">
+            <b>
+                Nested Text
+            </b>
+        </span>
+    </div>
+    <ul>
+        <li class="red">Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li class="green">Item 4</li>
+        <span>asfasfas</span>
+    </ul>
+
+</body>
+
+</html>
