@@ -1,77 +1,110 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  font: 1.1em/1.3 Tahoma, Verdana, Segoe, sans-serif;
-  min-width: 100vh;
-  margin: 1em auto;
-  padding: 0.5rem;
+    font: 1.1em/1.3 Tahoma, Verdana, Segoe, sans-serif;
+    min-width: 100vw;
+    margin: 1em auto;
+    padding: 0.5rem;
 }
 
 h1 {
-  color: green;
+    color: green;
 }
 
 hr {
-  margin-top: 2rem;
+    margin-top: 2rem;
 }
 
-.container {
-  display: flex; /* simply makes its "direct children" to flex-items */
-  /* flex-direction: column; */ /* gap: 1rem; */
-  gap: 1rem;
+.flex-container {
+    border: 2px solid black;
+    width: 100%;
+    height: 70vh;
+    padding: 1rem;
+    background: yellow;
+    display: flex; /* simply makes its "direct children" to flex-items */
+    /* flex-direction: column; */ /* gap: 1rem; */
+
+    /* https://www.youtube.com/watch?v=phWxA89Dy94&ab_channel=SlayingTheDragon */
+    gap: 1rem; /* since flex-direction is row thus it's just horizontal spacing */
 }
 
 div > h2 {
-  border-bottom: solid 2px dodgerblue;
+    border-bottom: solid 2px dodgerblue;
 }
 
+
+/* N.B: flex-basis simply means current viewport's width and height */
+
+/* so, when viewport grows/shrink; based on that flex grow and shrink would be calculated */
+
+/* Viewport growing (and at this moment viewport width 480 and flex has 4 children, so if any children flex: 2, then ((480 / 4) * 2) = 240px */
+
+/* Viewport shrinking (and at this moment viewport width 240 and flex has 4 children, so if any children flex: 2, then ((240 / 4) * 2) = 120px */
+
+/*
+
+It also depends on the order of the flex children, so for the first children it can take mentioned space but e.g.
+total viewport initially 1200px and now viewport width is 1600px and flex has 4 children so
+if first 3 flex children taking equal spacing let's say first 3 takes total 300px;
+so 1600 - 300 = 1300px remaining space thus (4 / 2) * 1300 = 650px + flex basis size (if mentioned otherwise remaining available space)
+
+*/
+
 .item:first-child {
-  /* let' assume available space is 120px and it has five children */
-  /* so when growing this "first-child" will get 120 * 2/5 = 48px & remaining space (120-48) will be divided to other flex children equally unless some of them uses flex property as well and when shrinking it will shrink (ogSize - 120 * 1/5) will be its new size while shrinking  */
-  flex: 2 1 auto; /* growingSize, shrinkingSize, initialSizeBeforeGrowOrShrink  */
+    background: red;
+    /* let' assume available space is 120px and it has five children */
+    /* so when growing this "first-child" will get 120 * 2/5 = 48px & remaining space (120-48) will be divided to other flex children equally unless some of them uses flex property as well and when shrinking it will shrink (ogSize - 120 * 1/5) will be its new size while shrinking  */
+    flex: 2 1 auto; /* growingSize, shrinkingSize, initialSizeBeforeGrowOrShrink  */
 }
 
 .item {
-  /* flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: auto; */
+    /* flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto; */
 
-  /* how much flex item could grow/shrink based on the given flex-basis */
-  /* if it's auto then it'll try to fit empty space */
-  /* 1 1 200px means , original size is 200px but when growing/shrinking all flex-child will add/subtract same amount of space from the available space */
-  /* 1 1 0 , take the available empty space among flex children equally since here flex-grow is 1 */
-  flex: 1 1 auto;
-  padding: 10px;
-  background-color: rgba(17, 105, 121, 0.1);
-  border-radius: 1rem;
+    /* how much flex item could grow/shrink based on the given flex-basis */
+    /* if it's auto then it'll try to fit empty space */
+    /* 1 1 200px means , original size is 200px but when growing/shrinking all flex-child will add/subtract same amount of space from the available space */
+    /* 1 1 0 , take the available empty space among flex children equally since here flex-grow is 1 */
+    flex: 1 1 auto;
+    padding: 10px;
+    background-color: rgba(17, 105, 121, 0.1);
+    border-radius: 1rem;
 }
 
 .item:nth-child(2) {
-  background-color: green;
-  flex: 4;
-  /* flex: 1080;  */
+    background-color: green;
+    flex: 4;
+    /* flex: 1080;  */
+}
+
+.item:nth-child(3) {
+    background: aqua;
 }
 
 .item:nth-child(4) {
-  background-color: blue;
-  /* flex: 4;  */
+    background-color: teal;
+    flex: 2;
+    /*height: 480px; !* fixed height *!*/
+    height: 100%;
+    border: none;
 }
 
-.item:nth-child(4) {
-  background-color: lightgreen;
-  flex: 4;
-  height: 480px;
-  border: none;
+.item:nth-child(5) {
+    background: goldenrod;
 }
+
+/* Button with Fontawesome icon */
 
 .btn {
-  background-color: lightgreen;
-  padding: 12px 16px;
-  font-size: 16px;
-  cursor: pointer;
+    background-color: lightgreen;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
 }
+
 .btn:hover {
-  background-color: green;
+    background-color: green;
 }
