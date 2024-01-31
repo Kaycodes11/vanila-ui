@@ -19,11 +19,11 @@
         width: 650px;
         margin: 50px auto 0;
         display: grid;
-        /* auto fit will simily fit the columns based on avaiable space  */
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
+        /* auto fit will simply fit the columns based on available space  */
+        /*grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));*/
+
         grid-template-columns: fit-content(200px) fit-content(300px) 1fr;
-
-
         grid-template-rows: repeat(2, minmax(100px, min-content));
 
         grid-auto-rows: 80px;

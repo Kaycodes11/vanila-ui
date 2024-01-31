@@ -17,8 +17,8 @@ h1 {
   display: grid;
   grid-template-columns: repeat(3, [col-start] 1fr [col-end]);
   
-  /* below are individal size for every row */
-  grid-template-rows: 120px 60px 100px 400px 50px; 
+  /* below are individual size for every row */
+  /*grid-template-rows: 120px 60px 100px 400px 50px; */
   /* now using grid template rows name */
   grid-template-rows: [header-start] 120px [header-end menu-start] 60px [menu-end box-start] 100px [box-end content-start] 400px [content-end footer-start] 50px [footer-end];
   grid-gap: 15px;

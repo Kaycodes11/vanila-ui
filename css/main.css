@@ -1,76 +1,75 @@
 * {
-  color: #ffffff;
-  text-shadow: 1px 1px 0 #000000;
-  box-sizing: border-box;
-  font-family: "Ubuntu", Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    text-shadow: 1px 1px 0 #000000;
+    box-sizing: border-box;
+    font-family: "Ubuntu", Arial, Helvetica, sans-serif;
 }
 
 html {
-  background: linear-gradient(-10deg, #c62828, #ba68c8);
-  min-height: 100vh;
-  font-size: 22px;
+    background: linear-gradient(-10deg, #c62828, #ba68c8);
+    min-height: 100vh;
+    font-size: 22px;
 }
 
 body {
-  padding: 50px;
+    padding: 50px;
 }
 
 .grid > * {
-  color: white;
-  background-color: rgba(255, 255, 255, 0.15);
-  border: 1px solid #ffffff;
-  border-radius: 2px;
-  padding: 20px;
-  /* margin: 10px; */
-  text-align: center;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid #ffffff;
+    border-radius: 2px;
+    padding: 20px;
+    text-align: center;
 }
 
 .grid a {
-  display: block;
+    display: block;
 }
 
 .grid > a:hover {
-  background-color: rgba(255, 255, 255, 0.25);
-  text-decoration: none;
-  transition: background-color ease 0.5s;
+    background-color: rgba(255, 255, 255, 0.25);
+    text-decoration: none;
+    transition: background-color ease 0.5s;
 }
 
 /* from here */
 .grid {
-  display: grid;
-  grid: 100px auto 150px / repeat(8, 1fr);
-  /* use "." to empty out out area if needed */
+    display: grid;
+    grid: 100px auto 150px / repeat(8, 1fr);
+    /* use "." to empty out out area if needed */
 
-  /* grid-template-areas:
-    "h h h h h h s s"
-    "c c c c c c s s"
-    "f f f f f f s s"; */
+    /* grid-template-areas:
+      "h h h h h h s s"
+      "c c c c c c s s"
+      "f f f f f f s s"; */
 
-  /* grid-template-areas:
-    ". h h h h h h ."
-    "c c c c c c s s"
-    ". f f f f f f ."; */
+    /* grid-template-areas:
+      ". h h h h h h ."
+      "c c c c c c s s"
+      ". f f f f f f ."; */
 
-  grid-template-areas:
+    grid-template-areas:
     "h h h h h h h h"
     "c c c c c . s s"
     "f f f f f f f f";
 
-  min-height: 100vh;
+    min-height: 100vh;
 }
 
 .header {
-  grid-area: h;
+    grid-area: h;
 }
 
 .content {
-  grid-area: c;
+    grid-area: c;
 }
 
 .sidebar {
-  grid-area: s;
+    grid-area: s;
 }
 
 .footer {
-  grid-area: f;
+    grid-area: f;
 }

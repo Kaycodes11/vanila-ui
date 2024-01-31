@@ -1,87 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Learn grid nested grid</title>
     <style>
-      body {
-        font-family: Arial, Helvetica, sans-serif;
-      }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-      h1 {
-        padding: 0 0 0 40px;
-      }
+        h1 {
+            padding: 0 0 0 40px;
+        }
 
-      .container {
-        background: wheat;
-        width: 650px;
-        margin: 50px auto 0;
-        display: grid;
+        .container {
+            background: wheat;
+            width: 650px;
+            margin: 50px auto 0;
 
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 150px);
+            display: grid;
 
-        grid-gap: 10px;
+            /* Based on current viewport's width or fixed width (like above); 2 responsive columns will be made that takes equal width  */
 
-        /* without modifying grid-template-rows the default space could be given like this when it has more than 2 rows  */
-        /* grid-auto-rows: 150px; */
-      }
+            grid-template-columns: repeat(2, 1fr); /* This property refers to width */
 
-      .item1 {
-        background: orangered;
-      }
-      .item2 {
-        background: yellowgreen;
-      }
+            /* When know the no. rows are fixed due to fixed no. of elements; then use the below property and in case the rows become more the mentioned below (here 2); the extra rows height won't be same as given below i.e. 150px for that use "grid-auto-rows" */
+            grid-template-rows: repeat(2, 150px); /* This property refers to height */
 
-      .item3 {
-        background: mediumpurple;
-        display: grid;
+            /* Grid by default wraps, best to use when have dynamic no. of rows (i.e. no. of grid items unknown) and so "each time a grid item added it will take 150px height" as mentioned below ↓ */
 
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 10px;
-        /* padding should be applied to conatainer where display: grid esepcailly when all the grid items should have same space around them */
-        padding: 10px;
-      }
+            /* Reference: https://chat.openai.com/c/1700534b-54a7-4f6f-8594-baaa0efdce9f */
 
-      .item3 > div {
-        background: #ffffff;
-        color: red;
-      }
+            /*grid-auto-rows: 250px; */
 
-      .item4 {
-        background: hotpink;
-      }
+            grid-gap: 10px; /* gap between row and columns  */
 
-      .item5 {
-        background: royalblue;
-      }
 
-      .item6 {
-        background: goldenrod;
-      }
+        }
 
-      .items {
-        color: #fff;
-        font-size: 20px;
-        text-align: center;
-        font-weight: bold;
-      }
+        .item1 {
+            background: orangered;
+        }
+
+        .item2 {
+            background: yellowgreen;
+        }
+
+        .item3 {
+            background: mediumpurple;
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 10px;
+
+            /* padding should be applied to container where used display: grid; aseptically when all the grid items should have same space around them */
+            padding: 10px;
+        }
+
+        .item3 > div {
+            background: #ffffff;
+            color: red;
+        }
+
+        .item4 {
+            background: hotpink;
+        }
+
+        .item5 {
+            background: royalblue;
+        }
+
+        .item6 {
+            background: goldenrod;
+        }
+
+        .items {
+            color: #fff;
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
     </style>
-  </head>
-  <body>
-    <h1>Learn grid nested grid</h1>
-    <div class="container">
-      <div class="items item1">One</div>
-      <div class="items item2">Two</div>
-      <div class="items item3">
+</head>
+<body>
+<h1>Learn grid nested grid</h1>
+<div class="container">
+    <div class="items item1">One</div>
+    <div class="items item2">Two</div>
+    <div class="items item3">
         <div class="subitems1">A</div>
         <div class="subitems2">B</div>
         <div class="subitems3">C</div>
-      </div>
-      <div class="items item4">Four</div>
     </div>
-  </body>
+    <div class="items item4">Four</div>
+</div>
+</body>
 </html>
