@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toggle Button: Dark/Light Mode</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #4070f4;
+        transition: all 0.3s ease-in-out;
+      }
+
+      body.dark {
+        background: #18191a;
+      }
+
+      .toggle {
+        position: relative;
+        height: 130px;
+        width: 300px;
+        border-radius: 100px;
+        background-color: #ffffff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+      }
+
+      .toggle::before {
+        content: "";
+        position: absolute;
+        height: 110px;
+        width: 110px;
+        background: #4070f4;
+        border-radius: 50%;
+        top: 50%;
+        left: 14px;
+        transform: translateY(-50%);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .toggle.active::before {
+        background-color: #18191a;
+        left: calc(100% - 110px - 14px); /* why subtracted like this? */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toggle"></div>
+    <script>
+      const body = document.querySelector("body");
+      const toggle = document.querySelector(".toggle");
+
+      let getMode = localStorage.getItem("mode");
+      if (getMode && getMode === "dark") {
+        body.classList.add("dark");
+        toggle.classList.add("active");
+      }
+
+      console.log(getMode);
+
+      toggle.addEventListener("click", () => {
+        body.classList.toggle("dark");
+        if (!body.classList.contains("dark")) {
+          return localStorage.setItem("mode", "light");
+        }
+
+        localStorage.setItem("mode", "dark");
+      });
+
+      toggle.addEventListener("click", () => toggle.classList.toggle("active"));
+    </script>
+  </body>
+</html>

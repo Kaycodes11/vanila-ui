@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Select</title>
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background: #4285f4;
+      }
+
+      .wrapper {
+        width: 370px;
+        margin: 130px auto 0;
+      }
+
+      .select-btn,
+      .options li {
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+      }
+
+      .select-btn {
+        height: 65px;
+        font-size: 22px;
+        padding: 0 20px;
+        border-radius: 7px;
+        background: #ffffff;
+        justify-content: space-between;
+      }
+
+      .select-btn i {
+        font-size: 31px; /* to increase the size of the icon */
+        transition: transform 0.3s linear;
+      }
+
+      .wrapper.active .select-btn i {
+        transform: rotate(-180deg);
+      }
+
+      .content {
+        display: none;
+        padding: 20px;
+        margin-top: 15px;
+        border-radius: 7px;
+        background: #ffffff;
+      }
+
+      /* only when an element has ".wrapper .active : next to each other on an element"; then apply the style to ".content" */
+      .wrapper.active .content {
+        display: block;
+      }
+
+      .content .search {
+        position: relative;
+      }
+
+      .search i {
+        left: 15px;
+        color: #999999;
+
+        /* "only when handling an <i> or text" */
+        font-size: 20px; /* increasing the size of the icon / text content itself  */
+        line-height: 53px; /* "leaving space" from the current position of text content or icon */
+        position: absolute;
+      }
+
+      .search input {
+        height: 53px; /* custom height*/
+        width: 100%; /* width inherited from its parent element */
+        outline: none;
+        font-size: 17px; /* here font-size only increase the text content's size */
+        border-radius: 5px;
+        padding: 0 15px 0 43px;
+        border: 1px solid #b3b3b3;
+      }
+
+      .content .options {
+        margin-top: 10px;
+        max-height: 250px;
+        /* overflow: hidden; */
+        overflow-y: auto;
+        padding-right: 7px;
+      }
+
+      /* https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar */
+
+      .options::-webkit-scrollbar {
+        width: 7px;
+      }
+
+      .options::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 25px;
+      }
+
+      .options::-webkit-scrollbar-thumb {
+        background: #cccccc;
+        border-radius: 25px;
+      }
+
+      .options li {
+        height: 50px;
+        padding: 0 13px;
+        font-size: 21px;
+        border-radius: 5px;
+      }
+
+      /* when ".options li:hover", then apply the below style on li.selected */
+
+      .options li:hover, li.selected {
+        background: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="select-btn">
+        <span>Select Country</span>
+        <i class="uil uil-angle-down"> </i>
+      </div>
+
+      <div class="content">
+        <div class="search">
+          <i class="uil uil-search"></i>
+          <input type="text" placeholder="Search" />
+        </div>
+        <ul class="options">
+          <!-- load it dynamically from script -->
+        </ul>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

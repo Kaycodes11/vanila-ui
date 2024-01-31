@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Radio</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      html,
+      body {
+        display: grid;
+        height: 100%;
+        /* background: green; */
+        place-items: center; /* similar to justify-content: center, align-items: center when using display : flex */
+      }
+
+      .wrapper {
+        width: 350px;
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .wrapper .title {
+        color: #ffffff;
+
+        /* line height and padding both used for "making space" but line height "make space" based on the "text content" while padding depends on the element */
+
+        line-height: 65px; /* kinda similar to adding padding top, padding bottom ( uses the element's inner text or text content ) */
+        text-align: center;
+        background: #333333;
+        font-size: 25px;
+        font-weight: 500;
+        border-radius: 10px 10px 0 0;
+      }
+
+      .wrapper .box {
+        /* To make space around element(s) -> "padding" but to make space around element's text -> "line height will be fine" */
+        padding: 20px 40px;
+        background: #ffffff;
+        border-radius: 10px;
+      }
+
+      .wrapper .box label {
+        display: flex;
+        height: 53px;
+        width: 100%;
+        align-items: center;
+        border: 1px solid lightgray;
+        border-radius: 50px;
+        margin: 10px 0; /* leaving space */
+        padding-left: 20px;
+        cursor: default;
+        transition: all 0.3s ease;
+      }
+
+      .wrapper .box label .dot {
+        height: 20px;
+        width: 20px;
+        background: #d9d9d9;
+        border-radius: 50%;
+        position: relative;
+      }
+
+      .box label .dot::before {
+        position: absolute;
+        content: "";
+
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -50%) scale(2);
+
+        width: 9px;
+        height: 9px;
+
+        /* background: #333333; */
+        border-radius: 50%;
+        transition: all 0.3s ease;
+      }
+
+      #option-1:checked ~ .option-1 .dot::before,
+      #option-2:checked ~ .option-2 .dot::before,
+      #option-3:checked ~ .option-3 .dot::before,
+      #option-4:checked ~ .option-4 .dot::before {
+        background: #333333;
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      .wrapper .box label .text {
+        color: #333333;
+        font-size: 18px;
+        font-weight: 400;
+        padding-left: 10px;
+        transform: color 0.3s ease;
+      }
+
+      /* '~' This "Tilde sign" is subsequent sibling selector within the same parent */
+
+      /* so here e.g. #option-1:checked, the select all subsequent element that has ".option-1" and apply the below styles  */
+      #option-1:checked ~ .option-1,
+      #option-2:checked ~ .option-2,
+      #option-3:checked ~ .option-3,
+      #option-4:checked ~ .option-4 {
+        background: #333333;
+        border-color: #333333;
+      }
+
+      #option-1:checked ~ .option-1 .text,
+      #option-2:checked ~ .option-2 .text,
+      #option-3:checked ~ .option-3 .text,
+      #option-4:checked ~ .option-4 .text {
+        color: #ffffff;
+      }
+
+      .wrapper .box input[type="radio"] {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="title">Select Your option</div>
+      <div class="box">
+        <input type="radio" name="select" id="option-1" />
+        <input type="radio" name="select" id="option-2" />
+        <input type="radio" name="select" id="option-3" />
+        <input type="radio" name="select" id="option-4" />
+        <label for="option-1" class="option-1">
+          <div class="dot"></div>
+          <div class="text">Gamer</div>
+        </label>
+
+        <label for="option-2" class="option-2">
+          <div class="dot"></div>
+          <div class="text">YouTuber</div>
+        </label>
+
+        <label for="option-3" class="option-3">
+          <div class="dot"></div>
+          <div class="text">Student</div>
+        </label>
+
+        <label for="option-4" class="option-4">
+          <div class="dot"></div>
+          <div class="text">Developer</div>
+        </label>
+      </div>
+    </div>
+  </body>
+</html>

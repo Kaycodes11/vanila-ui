@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The custom Range Slider</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        display: grid;
+        height: 100vh;
+        text-align: center;
+        place-items: center;
+        background: #664aff;
+      }
+      .range {
+        height: 80px;
+        width: 380px;
+        background: #ffffff;
+        border-radius: 10px;
+        padding: 0 65px 0 45px;
+      }
+
+      .range .sliderValue {
+        position: relative;
+        width: 100%;
+      }
+
+      .range .sliderValue span {
+        position: absolute;
+        height: 45px;
+        width: 45px;
+        /* background: red; */
+        color: #ffffff;
+        font-weight: 500;
+        top: -40px;
+        transform: translateX(-50%) scale(0);
+        transform-origin: bottom;
+        transition: transform 0.3s ease-in-out;
+        line-height: 55px;
+        z-index: 2;
+      }
+
+      .range .sliderValue span.show {
+        transform: translateX(-50%) scale(1);
+      }
+
+      .range .sliderValue span::after {
+        position: absolute;
+        content: "";
+        height: 45px;
+        width: 45px;
+        background: #664aff;
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+        border: 3px solid #ffffff;
+        z-index: -1;
+        /* below code is what make the rounded icon e.g. look like location */
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        border-bottom-left-radius: 50%;
+      }
+
+      .range .field {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%; /* why this height: 100% needed here ? */
+      }
+
+      .range .field .value {
+        position: absolute;
+        font-size: 18px;
+        font-weight: 600;
+        color: #664aff;
+      }
+
+      /* .range .filed => these 2 classes belong to different element where as .value.left sit next to each other on their respective element(s) */
+
+      .range .field .value.left {
+        left: -22px;
+      }
+
+      .range .field .value.right {
+        right: -43px;
+      }
+
+      .range .field input {
+        /* appearance: ; -> This css property allows to "apply custom styling on any element" */
+        -webkit-appearance: none;
+        height: 3px;
+        width: 100%;
+        background: #dddddd;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+      }
+
+      .range .field input::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 20px;
+        width: 20px;
+        background: #664aff;
+        border-radius: 50%;
+        border: 1px solid #664aff;
+        cursor: pointer;
+      }
+
+      .range .field input::-moz-range-progress {
+        background: #664aff; /* this style will only show up when using FireFox */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="range">
+      <div class="sliderValue">
+        <span>100</span>
+      </div>
+
+      <div class="field">
+        <div class="value left">0</div>
+        <input type="range" min="0" max="200" value="100" step="1" />
+        <div class="value right">200</div>
+      </div>
+    </div>
+    <script>
+      const sliderValue = document.querySelector("span");
+      const inputSlider = document.querySelector("input");
+
+      inputSlider.oninput = () => {
+        let value = inputSlider.value;
+        sliderValue.textContent = value;
+        // prettier-ignore
+        sliderValue.style.left = (value / 2) + "%";
+        sliderValue.classList.add("show");
+      };
+
+      inputSlider.onblur = () => {
+        sliderValue.classList.remove("show");
+      };
+    </script>
+  </body>
+</html>
