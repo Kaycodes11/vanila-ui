@@ -29,7 +29,7 @@ div > h2 {
 
 .item:first-child {
   /* let' assume available space is 120px and it has five children */
-  /* so when growing this "first-child" will get 120 * 2/5 = 48px & remaining space (120-48) will be divided to other flex-child equally unless some of them uses flex property and when shrinking it will shrink (ogSize - 120 * 1/5) will be its new size while shrinking  */
+  /* so when growing this "first-child" will get 120 * 2/5 = 48px & remaining space (120-48) will be divided to other flex children equally unless some of them uses flex property as well and when shrinking it will shrink (ogSize - 120 * 1/5) will be its new size while shrinking  */
   flex: 2 1 auto; /* growingSize, shrinkingSize, initialSizeBeforeGrowOrShrink  */
 }
 
@@ -67,7 +67,7 @@ div > h2 {
 }
 
 .btn {
-  background-color: light-green;
+  background-color: lightgreen;
   padding: 12px 16px;
   font-size: 16px;
   cursor: pointer;
