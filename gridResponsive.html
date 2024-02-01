@@ -52,6 +52,8 @@
             /* shorthand for align-item and justify-content */
             /* place-items: center start;*/
             /* place-items: center;*/
+
+            /* https://codesandbox.io/p/sandbox/grid-layout-kn999v?file=%2Fstyles.css%3A131%2C84 */
         }
 
         .item1 {
@@ -70,6 +72,13 @@
             background: hotpink;
             grid-column: 2 / 4;
             grid-row: 1 / 2; /* so 1 or 1 / 2 same [ just enable grid on browser ] */
+        }
+
+        /* N.B: There's no grid-item with class = "item5"; [ just an example how to occupy available width ]  */
+        .item5 {
+            /* take the full available width from grid container but if grid container uses "column dense" then no need to use it most likely */
+            grid-column: auto / span 3;
+
         }
 
         .items {

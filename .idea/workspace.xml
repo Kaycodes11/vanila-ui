@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fbb5647-8a57-4861-9de2-c21ecb0a5009" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/gridResponsive.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gridAutoFillAutoFit.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gridTrackAlignment.html" beforeDir="false" afterPath="$PROJECT_DIR$/gridTrackAlignment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gridResponsive.html" beforeDir="false" afterPath="$PROJECT_DIR$/gridResponsive.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,11 +63,22 @@
       <updated>1706712656603</updated>
       <workItem from="1706712657756" duration="4032000" />
       <workItem from="1706719639095" duration="3741000" />
-      <workItem from="1706759517719" duration="4423000" />
+      <workItem from="1706759517719" duration="6135000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
