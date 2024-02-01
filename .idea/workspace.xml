@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fbb5647-8a57-4861-9de2-c21ecb0a5009" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/css/gridLineNaming.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/gridLineNaming.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gridImplicitExplicit.html" beforeDir="false" afterPath="$PROJECT_DIR$/gridImplicitExplicit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gridOverlap.html" beforeDir="false" afterPath="$PROJECT_DIR$/gridOverlap.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gridResponsive.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gridAutoFillAutoFit.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/gridTrackAlignment.html" beforeDir="false" afterPath="$PROJECT_DIR$/gridTrackAlignment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nestedGrid.html" beforeDir="false" afterPath="$PROJECT_DIR$/nestedGrid.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +28,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JavaScript Debug.gridAutoFillAutoFit.html.executor": "Run",
+    "JavaScript Debug.gridTrackAlignment.html.executor": "Run",
     "JavaScript Debug.index.html.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -46,6 +45,16 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="gridTrackAlignment.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/vanila-ui/gridTrackAlignment.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.gridTrackAlignment.html" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -56,6 +65,7 @@
       <updated>1706712656603</updated>
       <workItem from="1706712657756" duration="4032000" />
       <workItem from="1706719639095" duration="3741000" />
+      <workItem from="1706759517719" duration="4423000" />
     </task>
     <servers />
   </component>

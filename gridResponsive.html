@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Learn grid auto fill auto fit</title>
+    <style>
+        html, body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            padding: 0 0 0 40px;
+        }
+
+        .container {
+            background: lightgrey;
+            width: 80%;
+            margin: 50px auto 0;
+            display: grid;
+
+            /* N.B: Here, has total 4 grid-items */
+
+            /*grid-template-columns: repeat(2, minmax(150px, 1fr));*/
+
+            /*grid-template-columns: repeat(auto-fill, 100px);*/
+
+            /* auto-fit: From the total grid-items; it'll try to fill as many as possible where each grid-item having same width and rest of the grid-item will by default "wrap" ; to prove that maybe change width from 80% to 10-20% to see "wrap" */
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* width */
+
+            /*grid-template-rows: repeat(2, 100px); !* height *!*/
+            grid-template-rows: repeat(auto-fit, 100px); /* height */
+            /*grid-template-rows: repeat(auto-fit, minmax(100px, 1fr)); !* height *!*/
+
+            /* auto-fill: similar to "auto-fit: it fills the empty space" whereas it keeps that empty space */
+            /*grid-template-rows: repeat(auto-fill, 100px); !* height *!*/
+
+
+            /* Here, assume grid has 10 items and mentioned in grid-template-columns(2, repeat(150px, 1fr) and I know rest of grid-items will "wrap" but by default they doesn't maintain height i.e. so then use "grid-auto-rows" */
+            grid-auto-rows: 80px;
+
+            /* grid will try its best to use available (width = column dense or row dense = height or both = dense) to fit all remaining grid-items but it may not be able fit all grid-items */
+
+            /* Instead of allowing "default wrap" ; when wants to fit all the remaining columns on the available space (width = column dense, available height = row dense or "dense") e.g. "gridTrackAlignment.html" */
+            /*grid-auto-flow: dense;*/
+
+
+            /*grid-row-gap: 5px; !* horizontal spacing between rows *!*/
+            grid-column-gap: 5px; /* vertical spacing between columns */
+
+            /* shorthand for align-item and justify-content */
+            /* place-items: center start;*/
+            /* place-items: center;*/
+        }
+
+        .item1 {
+            background: orangered;
+        }
+
+        .item2 {
+            background: yellowgreen;
+        }
+
+        .item3 {
+            background: mediumpurple;
+        }
+
+        .item4 {
+            background: hotpink;
+            grid-column: 2 / 4;
+            grid-row: 1 / 2; /* so 1 or 1 / 2 same [ just enable grid on browser ] */
+        }
+
+        .items {
+            color: #fff;
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<h1>css grid auto fill & auto fit</h1>
+<div class="container">
+    <div class="items item1">One</div>
+    <div class="items item2">Two</div>
+    <div class="items item3">Three</div>
+    <div class="items item4">Four</div>
+</div>
+</body>
+</html>
