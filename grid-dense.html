@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grid dense: use a single row</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Georgia, "Times New Roman", Times, serif;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+
+            background: grey;
+        }
+
+        .grid-container {
+            display: grid;
+            /* Will try to fit all "Grid items" in the single row always and it won't use default wrapping" */
+
+            /* N.B: But, some Grid items won't fit thus used `overflow-x: auto` */
+
+            grid-auto-flow: column dense;
+            grid-template-rows: 1fr; /* Specifies a single row */
+            overflow-x: auto; /* Enables horizontal scrolling if items exceed viewport width */
+            gap: 10px; /* Space between grid items */
+            padding: 10px; /* Padding around the grid */
+        }
+
+        .grid-item {
+            background-color: #f0f0f0; /* Light grey background for visibility */
+            text-align: center; /* Center text within each grid item */
+            padding: 20px; /* Padding inside grid items */
+            border: 1px solid #ddd; /* Border around grid items */
+            min-width: 100px; /* Minimum width for each item to ensure they don't become too narrow */
+        }
+    </style>
+</head>
+<body>
+<div class="grid-container">
+    <div class="grid-item">1</div>
+    <div class="grid-item">2</div>
+    <div class="grid-item">3</div>
+    <div class="grid-item">4</div>
+    <div class="grid-item">5</div>
+    <div class="grid-item">6</div>
+    <div class="grid-item">7</div>
+    <div class="grid-item">8</div>
+    <div class="grid-item">9</div>
+    <div class="grid-item">10</div>
+    <div class="grid-item">11</div>
+    <div class="grid-item">12</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fluid-Grid: Width relative to viewport</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Georgia, "Times New Roman", Times, serif;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+
+            background: grey;
+        }
+
+        .grid-container {
+            height: 100%;
+
+            display: grid;
+
+            /* On the current viewport, there's available extra space on width i.e. X axis, now what? */
+
+            /* It reacts the when viewport shrinks/grows but it does occupy the available space on width i.e. X axis */
+
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+
+            /* It reacts the when viewport shrinks/grows but it doesn't occupy the available space on width i.e. X axis */
+
+            /* grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); */
+
+            /* N.B: This works only at the default or initial screen size "but it doesn't react when viewport shrinks" */
+
+            /* grid-template-columns: repeat(12, minmax(100px, 1fr));  */
+
+            /* Height */
+            grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+
+            /* gap: 10px; */
+            gap: 32px; /* Space between grid columns and rows */
+
+            padding: 20px; /* Padding around the grid */
+        }
+
+        .grid-item {
+            background-color: #f0f0f0; /* Light grey background for visibility */
+            text-align: center; /* Center text within each grid item */
+            padding: 20px; /* Padding inside grid items */
+            border: 1px solid #ddd; /* Border around grid items */
+        }
+    </style>
+</head>
+<body>
+<!-- N.B: Fluid Grid (Figma layout grid: stretch): as viewport grows/shrinks; grid items will behave accordingly -->
+<div class="grid-container">
+    <div class="grid-item">1</div>
+    <div class="grid-item">2</div>
+    <div class="grid-item">3</div>
+    <div class="grid-item">4</div>
+    <div class="grid-item">5</div>
+    <div class="grid-item">6</div>
+    <div class="grid-item">7</div>
+    <div class="grid-item">8</div>
+    <div class="grid-item">9</div>
+    <div class="grid-item">10</div>
+    <div class="grid-item">11</div>
+    <div class="grid-item">12</div>
+</div>
+</body>
+</html>
