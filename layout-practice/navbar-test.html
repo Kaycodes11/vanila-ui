@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testing Navbar</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      /*
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 1920px;
+        height: 80px;
+        background-color: #d8dddf;
+      }
+
+      .logo,
+      .search,
+      .location {
+        padding: 10px;
+      }
+
+      .large-text {
+        padding: 20px;
+        font-size: 1.2em;
+      }
+
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          height: auto;
+        }
+        .logo,
+        .search,
+        .location,
+        .large-text {
+          padding: 8px;
+        }
+      }
+
+      */
+
+      /* .navbar {
+        display: flex;
+        align-items: stretch;
+        width: 100%;
+        max-width: 1920px;
+        height: 80px;
+        background-color: #d8dddf;
+      }
+
+      .logo {
+        flex: 0 1 120px;
+        padding: 10px;
+      }
+
+      .search {
+        flex: 1 1 400px;
+        padding: 10px;
+      }
+
+      .location {
+        flex: 0 1 180px;
+        padding: 10px;
+      }
+
+      .large-text {
+        flex: 0 1 300px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2em;
+        background-color: lightcoral;
+      }
+
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          height: auto;
+        }
+        .logo,
+        .search,
+        .location,
+        .large-text {
+          flex: 0 0 auto;
+          width: 100%;
+        }
+      } */
+
+      .navbar {
+        display: flex;
+        align-items: center; /* Center children vertically */
+        width: 100%;
+        max-width: 1920px;
+        height: 80px; /* Fixed height */
+        background-color: #d8dddf; /* Example background color */
+      }
+
+      /* Apply similar styles to elements 1, 2, and 3 */
+      .logo,
+      .search,
+      .location {
+        padding: 10px; /* Adjust padding as needed */
+        align-self: center; /* Ensure they are centered if their height is adjusted */
+        height: 60px; /* Example fixed height to make them have the same height */
+        background-color: coral; /* Background color for visualization */
+      }
+
+      .large-text {
+        flex-grow: 1; /* Allow the large text to take up the remaining space */
+        padding: 10px; /* Adjust padding as needed */
+        font-size: 1.2em; /* Larger font size for the large text */
+        background-color: lightgreen; /* Background color for visualization */
+        display: flex;
+        align-items: center; /* Center the text vertically within itself */
+        justify-content: center; /* Center the text horizontally */
+      }
+
+      /*
+      .navbar {
+        display: grid;
+        grid-template-columns: repeat(
+          4,
+          1fr
+        );
+        align-items: center;
+        width: 100%;
+        max-width: 1920px;
+        height: 80px;
+        background-color: #d8dddf;
+      }
+
+      .logo,
+      .search,
+      .location {
+        padding: 10px;
+      }
+
+      .large-text {
+        padding: 20px;
+        font-size: 1.2em;
+        grid-column: span 1;
+      }
+
+      @media (max-width: 768px) {
+        .navbar {
+          grid-template-columns: 1fr;
+          height: auto;
+        }
+        .logo,
+        .search,
+        .location,
+        .large-text {
+          padding: 8px;
+        }
+      }
+      */
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="logo">Logo SVG</div>
+      <div class="search">Search Field</div>
+      <div class="location">Location Button</div>
+      <div class="large-text">Large Text</div>
+    </div>
+  </body>
+</html>

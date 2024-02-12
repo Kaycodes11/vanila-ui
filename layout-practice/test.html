@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox vs Grid</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      /* Flexbox CSS */
+      .flex-container {
+        display: flex;
+        align-items: center; /* Vertically center children */
+        width: 100%;
+        /* height: 100vh; */
+        height: 80px; /* Example: Set the container's height */
+        background-color: lightblue; /* Background color for the flex container */
+      }
+
+      .first-child {
+        flex: 3;
+        padding: 10px; /* Adjust padding as needed */
+        background-color: coral; /* Background color for the first child in flex container */
+        min-width: 100px;
+      }
+
+      .second-child {
+        flex-grow: 1; /* Take up the remaining space */
+        padding: 10px; /* Adjust padding as needed */
+        min-height: 80px;
+        min-height: 100%; /* Optional: if you want the second child to match the container's height */
+        background-color: lightgreen; /* Background color for the second child in flex container */
+        overflow: hidden ;
+      }
+
+      /* CSS Grid */
+      .grid-container {
+        display: grid;
+        /* First column for content width, second for remaining space ↓ */
+        /* grid-template-columns: auto 1fr; */
+        grid-template-columns: 3fr 1fr;
+        align-items: center; /* Vertically center children */
+        width: 100%;
+        height: 80px;
+        /* Example: Set the container's height ↓ */
+        /* height: 100vh;  */
+        background-color: lightgrey; /* Background color for the grid container */
+      }
+
+      .first-child-1,
+      .second-child-2 {
+        min-height: 100%; /* Optional: to take full height from container */
+        padding: 10px;
+      }
+
+      .first-child-1 {
+        min-height: 100px;
+        background-color: tomato; /* Background color for the first child in grid container */
+      }
+
+      .second-child-2 {
+        min-height: 80px;
+        background-color: aquamarine; /* Background color for the second child in grid container */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Flexbox version -->
+    <div class="flex-container">
+      <div class="first-child">Flexbox: Dynamic Content Here</div>
+      <div class="second-child">Flexbox: Remaining Space Content</div>
+    </div>
+    <!-- Grid version -->
+    <!-- <div class="grid-container">
+      <div class="first-child-1">Dynamic Content Here</div>
+      <div class="second-child-2">Remaining Space Content</div>
+    </div> -->
+  </body>
+</html>

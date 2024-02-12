@@ -1,0 +1,162 @@
+/* CSS Reset */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    line-height: 1;
+    height: 100%;
+    width: 100%;
+    font-family: "Roboto", sans-serif;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+h1,
+p {
+    margin: 0.5rem;
+}
+
+/* MAIN SIZE */
+.notification {
+    width: 100%;
+    min-height: 50px;
+
+    padding: 0 150px;
+
+    display: grid;
+    align-items: center;
+    gap: 8px;
+
+    border-bottom: 2px solid #E5E7EB;
+}
+
+/* Container: Spacing and alignment of the Grid children */
+.container {
+    width: 100%; /* take full available width excluding margin / padding from parent element */
+    min-width: 1140px;
+    height: 25px;
+
+    padding: 0;
+
+    display: grid;
+
+    /* N.B: As any of the direct children width increase (maybe due to increase of content's length) then space will equally distributed "while respecting parent container margin / padding" when using "space-between" */
+
+    justify-content: space-between;
+    align-items: center;
+
+    /* All of .container's children will sit in a single row thus ↓ */
+    grid-auto-flow: column;
+
+}
+
+.notification-menu {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 20px;
+}
+
+/* SIZE */
+.beforeNavigation {
+    width: 100%;
+    min-height: 90px;
+
+    padding: 0 150px;
+
+    display: grid;
+    align-items: center;
+    gap: 8px;
+
+    border-bottom: 2px solid #E5E7EB;
+}
+
+/* Container: Spacing and alignment of the Grid children */
+.beforeNavigationContainer {
+    width: 100%;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 64px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .beforeNavigationContainer {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .logo, .search, .location, .menu {
+        width: 100%;
+        flex: none;
+    }
+
+    /*.search input {}*/
+
+}
+
+.logo {
+    width: 212px;
+    height: 90px;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.search {
+    flex: 3;
+}
+
+.search input {
+    width: 100%;
+    padding: 12px;
+    border-bottom: 1px solid #E5E7EB;
+
+}
+
+.location {
+    flex: 1;
+    background-color: goldenrod;
+}
+
+.menu {
+    flex: 2;
+    background-color: cornflowerblue;
+}

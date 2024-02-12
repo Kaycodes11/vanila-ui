@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Single Column</title>
+    <style>
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(min-content, max-content)
+        );
+        gap: 20px; /* Space between grid items */
+        justify-content: start; /* Aligns grid items to the start of the grid line */
+        width: 100%; /* Full width of its container */
+        max-width: 800px; /* Maximum width of the grid container */
+        margin: auto; /* Center the grid container */
+        padding: 20px; /* Padding around the grid container */
+      }
+
+      .auto-width-content {
+        display: inline-grid; /* or 'inline-flex' based on your preference */
+        padding: 10px; /* Padding inside the content box for better readability */
+        background-color: #f0f0f0; /* Background color of the content box */
+        border: 1px solid #ccc; /* Border for visual distinction */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="auto-width-content">Short Text</div>
+      <div class="auto-width-content">
+        This is a much longer piece of text that adjusts the width.
+      </div>
+      <!-- Additional elements can be added here -->
+    </div>
+  </body>
+</html>

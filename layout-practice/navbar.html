@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar</title>
+    <style>
+      list,
+      a {
+        text-decoration: none;
+      }
+
+      .navbar {
+        box-sizing: border-box;
+        position: relative;
+        background: #d8dddf;
+        display: grid;
+        width: 100%;
+        max-width: 1920px;
+        height: auto;
+        align-items: center;
+        grid-template-columns: 1fr auto;
+        padding: 0 150px;
+        gap: 32px;
+      }
+
+      
+
+      .nav-menus {
+        display: flex; /* Use Flexbox for horizontal layout */
+        flex-wrap: wrap;
+        gap: 32px; /* Control the space between items */
+        padding: 16px 0;
+        font-size: 1.4em;
+        background: lawngreen;
+        align-items: center; /* Vertically center the items within the nav-menus */
+      }
+
+      .telephone {
+        display: grid; /* Already using flex, confirming the use of grid */
+        grid-auto-flow: row; /* Stack items vertically */
+        gap: 8px; /* Space between telephone and telephone-small */
+        background: saddlebrown;
+        padding: 16px;
+        font-size: 1.8em;
+        justify-self: start; /* Align the telephone block to the left */
+      }
+
+      .telephone-small {
+        font-size: 0.8em;
+        background: lightcoral;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="nav-menus">
+        <!-- Navigation menus -->
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="telephone">
+        Call us: +123 456 7890
+        <div class="telephone-small">24/7 Support Center</div>
+      </div>
+    </div>
+  </body>
+</html>
