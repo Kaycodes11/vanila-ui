@@ -1,5 +1,28 @@
-By default files prefixed with '_' and extension scss/sass not compiled , so to compile to scss -> css ;
-use either command line or an extension
+# SASS setup less than 5 Minute
 
+![sass-setup](thumbnail.png)
 
-BEM : Block ( Object = "__" ) Element ( Elements = "__" )  Modifier  ( Appearance - Behaviour - State == "--" )
+[Watch On Youtube](https://youtu.be/K7zmx_kwtX0)
+
+## setup Snippet
+
+### step 1
+
+```npm command
+npm init -y
+```
+
+### step 2
+
+```sass install command
+npm i -g sass
+```
+
+> package.json
+
+```json
+  "scripts": {
+    "sass": "sass --no-source-map --watch sass/style.scss css/style.css",
+    "sass:compress": "sass --no-source-map --watch sass/style.scss css/compress.css --style compressed"
+  },
+```
