@@ -5,15 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UI Element: Buttons</title>
     <style>
-      /* html, body {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        } */
-      list,
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
       ul,
+      list,
       a {
+        list-style-type: none;
         text-decoration: none;
+      }
+
+      h1 {
+        padding: 0 16px;
+        text-align: left;
+        vertical-align: middle;
+        background-color: lightblue;
+      }
+
+      ul {
+        /* background: red; */
+        padding: 0 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        font-size: 1rem;
+        font-weight: 500;
       }
     </style>
   </head>
@@ -21,7 +40,13 @@
     <h1>Most common Button Styles</h1>
     <ul>
       <li>
-        <a href="./example-01/">Button with icon and dropdown</a>
+        <a href="./example-01/">Search Button with dropdown</a>
+      </li>
+      <li>
+        <a href="./toggle-02/toggle-01.html">Toggle Button</a>
+      </li>
+      <li>
+        <a href="searchbar-animated/">Search Button: Animated</a>
       </li>
     </ul>
   </body>

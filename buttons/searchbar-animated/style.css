@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500&display=swap");
+
+:root {
+  --primary: #b983ff;
+  --secondary: #52057b;
+  --secondary-light: rgba(82, 5, 123, 0.8);
+  --secondary-light-2: rgba(82, 5, 123, 0.5);
+  --white: #ffffff;
+  --red: #fd1818;
+
+  /* Radius */
+
+  --radius-1: 50px;
+  --radius-2: 50%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background-color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  padding: 0.5rem;
+  border-radius: var(--radius-1);
+  background-color: var(--white);
+}
+
+.container form {
+  /* The size (width + height) will depend on its direct children's width + height */
+  /* background-color: green; */
+
+  position: relative;
+
+  /* N.B: How should the direct children of "form" should be aligned on X and Y axis and their spacing ? */
+  display: flex;
+  align-items: center;
+}
+
+#search-input {
+  flex: 1;
+  font-size: 1.1rem;
+  color: var(--secondary);
+  border-radius: var(--radius-1);
+  border: none;
+  outline: none;
+  width: 0;
+  transition: width 0.6s, padding 0.5s; /* The properties the affected during animation is Width, padding */
+}
+
+/* To style the placeholder text within "#search-input" */
+#search-input::placeholder {
+  color: var(--secondary-light-2);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+/* When ".active" added to "#search-input" only then style the placeholder text within "#search-input" */
+
+.active#search-input::placeholder {
+  font-size: 1.1rem;
+  opacity: 1;
+}
+
+/* Following styles will be applied to "#search-input" when it has ".active" class added onto it  */
+#search-input.active {
+  width: 500px;
+  padding: 1rem;
+}
+
+.clear-icon {
+  position: absolute;
+  right: 45px;
+
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.3s;
+  /* background-color: red; for debug */
+}
+
+.clear-icon.active {
+  opacity: 1;
+}
+
+.clear-icon i {
+  color: var(--secondary);
+  cursor: pointer;
+  font-size: 1.3rem; /* increase the icon size */
+}
+
+.clear-icon i:hover {
+  color: var(--red);
+}
+
+/* Styling button and icon within it */
+.search-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-2);
+  /* Remove the default border that comes with an HTML button */
+  border: none;
+  background-color: var(--secondary);
+  /* color of the icon */
+  color: var(--white);
+  /* N.B: button usually have textContent so even if it has single child i.e. icon, font-size could be used  */
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 2;
+  transition: background-color 0.2s;
+}
+
+.search-icon:hover {
+  background-color: var(--secondary-light);
+}

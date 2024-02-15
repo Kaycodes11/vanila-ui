@@ -2,12 +2,12 @@
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -22,141 +22,218 @@ hgroup,
 menu,
 nav,
 section {
-    display: block;
+  display: block;
 }
 
 html {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    line-height: 1;
-    height: 100%;
-    width: 100%;
-    font-family: "Roboto", sans-serif;
+  line-height: 1;
+  height: 100%;
+  width: 100%;
+  font-family: "Roboto", sans-serif;
 }
 
 ol,
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 h1,
 p {
-    margin: 0.5rem;
+  margin: 0.5rem;
 }
 
 /* MAIN SIZE */
 .notification {
-    width: 100%;
-    min-height: 50px;
+  width: 100%;
+  min-height: 50px;
 
-    padding: 0 150px;
+  padding: 0 150px;
 
-    display: grid;
-    align-items: center;
-    gap: 8px;
+  display: grid;
+  align-items: center;
+  gap: 8px;
 
-    border-bottom: 2px solid #E5E7EB;
+  border-bottom: 2px solid #e5e7eb;
 }
 
-/* Container: Spacing and alignment of the Grid children */
+/* Container: provides Spacing and alignment to children  */
+
 .container {
-    width: 100%; /* take full available width excluding margin / padding from parent element */
-    min-width: 1140px;
-    height: 25px;
+  width: 100%; /* take full available width excluding margin / padding from parent element */
+  min-width: 1140px;
+  height: 25px;
 
-    padding: 0;
+  padding: 0;
 
-    display: grid;
+  display: grid;
 
-    /* N.B: As any of the direct children width increase (maybe due to increase of content's length) then space will equally distributed "while respecting parent container margin / padding" when using "space-between" */
+  /* N.B: As any of the direct children width increase (maybe due to increase of content's length) then space will equally distributed "while respecting parent container margin / padding" when using "space-between" */
 
-    justify-content: space-between;
-    align-items: center;
+  justify-content: space-between;
+  align-items: center;
 
-    /* All of .container's children will sit in a single row thus ↓ */
-    grid-auto-flow: column;
-
+  /* All of .container's children will sit in a single row thus ↓ */
+  grid-auto-flow: column;
 }
+
+/* Any of child element can use their own padding, width + height or even absolute positioning as needed */
 
 .notification-menu {
-    display: grid;
-    grid-auto-flow: column;
-    gap: 20px;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 20px;
 }
 
 /* SIZE */
 .beforeNavigation {
-    width: 100%;
-    min-height: 90px;
+  width: 100%;
+  min-height: 90px;
 
-    padding: 0 150px;
+  /* vertical padding, horizontal padding */
+  padding: 0 150px;
 
-    display: grid;
-    align-items: center;
-    gap: 8px;
+  display: grid;
+  align-items: center;
+  gap: 8px;
 
-    border-bottom: 2px solid #E5E7EB;
+  border-bottom: 2px solid #e5e7eb;
 }
 
-/* Container: Spacing and alignment of the Grid children */
+/* Container: Spacing and alignment of the children */
 .beforeNavigationContainer {
-    width: 100%;
+  /* debug */
+  /* background-color: red; */
 
-    padding: 0;
+  width: 100%;
 
-    display: flex;
-    align-items: center;
-    gap: 64px;
+  /* padding: 0; */ /* optional since padding will be inherited */
+
+  display: flex;
+  align-items: center;
+  gap: 32px;
 }
 
-/* Responsiveness */
+/* Responsiveness when viewport reached 768px or less */
 @media (max-width: 768px) {
-    .beforeNavigationContainer {
-        flex-direction: column;
-        gap: 16px;
-    }
+  .beforeNavigationContainer {
+    flex-direction: column;
+    gap: 16px;
+  }
 
-    .logo, .search, .location, .menu {
-        width: 100%;
-        flex: none;
-    }
-
-    /*.search input {}*/
-
-}
-
-.logo {
-    width: 212px;
-    height: 90px;
+  .logo,
+  .search,
+  .location,
+  .menu {
+    width: 100%;
+    flex: none;
+  }
 }
 
 .content {
-    flex: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 24px;
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  /* background-color: green; */
 }
 
+/* Total Size (width + height : done via flex: 1) and padding/margin */
 .search {
-    flex: 3;
+  flex: 3;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
 }
 
-.search input {
-    width: 100%;
-    padding: 12px;
-    border-bottom: 1px solid #E5E7EB;
+/* Container: spacing and alignment of the children */
+.searchContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
 
+/* Select all direct children of .searchContainer, & apply same padding as ".search"  */
+.searchContainer > * {
+  padding: 0 24px;
+}
+
+.categories {
+  /* take up the remaining space by using flex: 1 */
+  /* flex: 1; */
+  /* Doesn't grow, can shrink, & starts at 20% of the parent's width */
+  flex: 0 1 20%;
+
+  /* Maximum width set to 25% of the .searchContainer */
+  /* max-width: 25%; */
+
+  /* Allows the text to truncate if necessary */
+  /* min-width: 0;  */
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* background-color: blanchedalmond; */
+}
+
+.categories span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* .categories { */
+/* Adjusted to prevent growth beyond 25% of .searchContainer; but can shrink */
+/* flex: 0 1 25%;  */
+/* } */
+
+.search-query {
+  /* background-color: rebeccapurple; */
+  flex: 1;
+  width: 100%; /* Ensures it takes the full width available to it */
+  /* background-color: red; */
+}
+
+.search-query input {
+  border: 0;
+  outline: 0;
+  border-radius: 50px;
+  padding: 8px 16px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  /* Ensures the input field stretches within its container i.e. take full available width from its parent i.e. ".search-query" */
+  width: 100%;
+}
+
+/* Adjustments for responsiveness */
+@media (max-width: 768px) {
+  .searchContainer {
+    flex-direction: column;
+    align-items: stretch; /* Ensures children stretch to full width */
+  }
+
+  .categories,
+  .search-query {
+    width: 100%; /* Each child takes full width on smaller screens */
+    max-width: none; /* Removes max-width restriction */
+  }
 }
 
 .location {
-    flex: 1;
-    background-color: goldenrod;
+  background-color: beige;
+  flex: 1 0 auto;
+  padding: 16px 0;
 }
 
 .menu {
-    flex: 2;
-    background-color: cornflowerblue;
+  background-color: aqua;
+  flex: auto;
+  padding: 16px 0;
 }

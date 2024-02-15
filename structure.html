@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Form has 2 children : select , span -->
+    <form action="#">
+      <select
+        class="select-active select2-hidden-accessible"
+        data-select2-id="1"
+        tabindex="-1"
+        aria-hidden="true"
+      >
+        <option data-select2-id="3">All Categories</option>
+        <option>Milks and Dairies</option>
+        <option>Wines &amp; Alcohol</option>
+        <option>Clothing &amp; Beauty</option>
+        <option>Pet Foods &amp; Toy</option>
+        <option>Fast food</option>
+        <option>Baking material</option>
+        <option>Vegetables</option>
+        <option>Fresh Seafood</option>
+        <option>Noodles &amp; Rice</option>
+        <option>Ice cream</option>
+      </select>
+      
+      
+      <!-- Now it didn't have to be span (since inline or block doesn't matter) -->
+      <span
+        class="select2 select2-container select2-container--default select2-container--below select2-container--open select2-container--focus"
+        dir="ltr"
+        data-select2-id="2"
+        style="width: 140px"
+      >
+        <span class="selection">
+          <span
+            class="select2-selection select2-selection--single"
+            role="combobox"
+            aria-haspopup="true"
+            aria-expanded="true"
+            tabindex="0"
+            aria-labelledby="select2-1xwv-container"
+            aria-owns="select2-1xwv-results"
+            aria-activedescendant="select2-1xwv-result-mmlz-Pet Foods &amp; Toy"
+          >
+            <span
+              class="select2-selection__rendered"
+              id="select2-1xwv-container"
+              role="textbox"
+              aria-readonly="true"
+              title="All Categories"
+              >All Categories</span
+            >
+            <span class="select2-selection__arrow" role="presentation">
+              <b role="presentation"></b>
+            </span>
+          </span>
+        </span>
+        <span class="dropdown-wrapper" aria-hidden="true"></span>
+      </span>
+
+      <input type="text" placeholder="Search for items..." />
+    </form>
+  </body>
+</html>

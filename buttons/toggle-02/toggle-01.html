@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI element: Button Toggle</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #4070f4;
+        transition: all 0.3s ease-in-out;
+      }
+
+      body.dark {
+        background: #18191a;
+      }
+
+      .toggle {
+        position: relative;
+        height: 130px;
+        width: 300px;
+        border-radius: 100px;
+        background-color: #ffffff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+      }
+
+      /* READ ::before simply becomes the first children / element within ".toggle"  */
+      /* READ ::before simply becomes the last children / element within ".toggle"  */
+
+      .toggle::before {
+        content: "";
+        position: absolute;
+        height: 110px;
+        width: 110px;
+        background: #4070f4;
+        border-radius: 50%;
+        top: 50%;
+        left: 14px;
+        /* if not aligned, the use transform as below ↓ */
+        transform: translateY(-50%);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .toggle.active::before {
+        background-color: #18191a;
+        left: calc(100% - 110px - 14px); /* height = 110px and left = 14px */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toggle"></div>
+    <script>
+      const body = document.querySelector("body");
+      const toggle = document.querySelector(".toggle");
+
+      let getMode = localStorage.getItem("mode");
+      if (getMode && getMode === "dark") {
+        body.classList.add("dark");
+        toggle.classList.add("active");
+      }
+
+      console.log(getMode);
+
+      toggle.addEventListener("click", () => {
+        body.classList.toggle("dark");
+        if (!body.classList.contains("dark")) {
+          return localStorage.setItem("mode", "light");
+        }
+
+        localStorage.setItem("mode", "dark");
+      });
+
+      toggle.addEventListener("click", () => toggle.classList.toggle("active"));
+    </script>
+  </body>
+</html>
